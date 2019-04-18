@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="059f562a-d293-48c2-95da-f0853ef1ad94" name="Default Changelist" comment="" />
+    <list default="true" id="059f562a-d293-48c2-95da-f0853ef1ad94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/createhandler/FastCarCreateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CarFactory/com/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CarFactory/com/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CarFactory/com/carcreator/DetailCarCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CarFactory/com/carcreator/DetailCarCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CarFactory/com/createhandler/DetailCarCreateHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CarFactory/com/createhandler/DetailCarCreateHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/AppRuner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/AppRuner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,59 +39,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="307">
-              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1357#1358#0" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
-                <element signature="method#seeCarDetail#0;class#DetailCarCreator#0" />
                 <element signature="method#changeEngine#0;class#DetailCarCreator#0" />
                 <element signature="method#changeTransmission#0;class#DetailCarCreator#0" />
                 <element signature="method#changeBody#0;class#DetailCarCreator#0" />
                 <element signature="method#changeSuspension#0;class#DetailCarCreator#0" />
                 <element signature="method#changeInterior#0;class#DetailCarCreator#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/AppRuner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#toString#0;class#DetailCarCreator#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/Suspension.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="34">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/StandartSuspension.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#engineTypeReader#0;class#DetailCarCreateHandler#0" />
-                <element signature="method#transmissionTypeReader#0;class#DetailCarCreateHandler#0" />
-                <element signature="method#bodyTypeReader#0;class#DetailCarCreateHandler#0" />
-                <element signature="method#suspensionTypeReader#0;class#DetailCarCreateHandler#0" />
-                <element signature="method#interiorTypeReader#0;class#DetailCarCreateHandler#0" />
+                <element signature="e#287#288#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#593#594#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+                <element signature="e#697#698#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,6 +101,9 @@
     <findStrings>
       <find>wait</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -150,10 +154,11 @@
         <option value="$PROJECT_DIR$/src/com/interiorcreator/StandartInterior.java" />
         <option value="$PROJECT_DIR$/src/com/interiorcreator/WearResistantInterior.java" />
         <option value="$PROJECT_DIR$/src/com/carcreator/FastCarCreator.java" />
-        <option value="$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java" />
-        <option value="$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/AppRuner.java" />
         <option value="$PROJECT_DIR$/src/com/Test.java" />
+        <option value="$PROJECT_DIR$/src/com/AppRuner.java" />
+        <option value="$PROJECT_DIR$/src/com/createhandler/FastCarCreateHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java" />
       </list>
     </option>
   </component>
@@ -168,6 +173,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,15 +193,28 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CarFactory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarFactory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="carcreator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarFactory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarFactory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="suspensioncreator" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -217,7 +237,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test (1)">
+  <component name="RunManager" selected="Application.AppRuner (1)">
     <configuration name="AppRuner (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AppRuner" />
       <module name="CarFactory" />
@@ -272,8 +292,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.AppRuner (1)" />
+        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.AppRuner" />
         <item itemvalue="Application.Test" />
       </list>
@@ -294,16 +314,17 @@
       <workItem from="1555356760203" duration="37722000" />
       <workItem from="1555527038176" duration="17506000" />
       <workItem from="1555578885656" duration="92000" />
+      <workItem from="1555580132600" duration="4781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78677000" />
+    <option name="totallyTimeSpent" value="83458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20631067" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20954692" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -339,8 +360,25 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Carmodel.txt" />
     <entry file="file://$PROJECT_DIR$/Carmodel.txt" />
     <entry file="file://$PROJECT_DIR$/src/com/caseih/WV.java" />
     <entry file="file://$PROJECT_DIR$/src/com/caseih/SomeCar.java" />
@@ -381,13 +419,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/interiorcreator/Interior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/Suspension.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
@@ -517,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/StandartSuspension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/SportSuspension.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -595,40 +619,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carcreator/FastCarCreator.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="method#seeCarDetail#0;class#DetailCarCreator#0" />
-            <element signature="method#changeEngine#0;class#DetailCarCreator#0" />
-            <element signature="method#changeTransmission#0;class#DetailCarCreator#0" />
-            <element signature="method#changeBody#0;class#DetailCarCreator#0" />
-            <element signature="method#changeSuspension#0;class#DetailCarCreator#0" />
-            <element signature="method#changeInterior#0;class#DetailCarCreator#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/AppRuner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/createhandler/DetailCarCreateHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="510">
+          <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getCollectionContent#0;class#DetailCarCreateHandler#0" />
             <element signature="method#engineTypeReader#0;class#DetailCarCreateHandler#0" />
             <element signature="method#transmissionTypeReader#0;class#DetailCarCreateHandler#0" />
             <element signature="method#bodyTypeReader#0;class#DetailCarCreateHandler#0" />
@@ -638,10 +642,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/com/AppRuner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="544">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/createhandler/FastCarCreateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createCar#0;class#FastCarCreateHandler#0" />
+            <element signature="e#1672#1673#0" expanded="true" />
+            <element signature="e#1725#1726#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/Suspension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/suspensioncreator/StandartSuspension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+          <folding>
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carcreator/DetailCarCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#changeEngine#0;class#DetailCarCreator#0" />
+            <element signature="method#changeTransmission#0;class#DetailCarCreator#0" />
+            <element signature="method#changeBody#0;class#DetailCarCreator#0" />
+            <element signature="method#changeSuspension#0;class#DetailCarCreator#0" />
+            <element signature="method#changeInterior#0;class#DetailCarCreator#0" />
+            <element signature="method#toString#0;class#DetailCarCreator#0" />
+          </folding>
         </state>
       </provider>
     </entry>

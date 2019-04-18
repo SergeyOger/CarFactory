@@ -2,6 +2,7 @@ package com;
 
 import com.carcreator.DetailCarCreator;
 import com.createhandler.DetailCarCreateHandler;
+import com.createhandler.FastCarCreateHandler;
 
 import java.util.Scanner;
 
@@ -23,9 +24,12 @@ public class AppRuner {
         }
 
          */
-        DetailCarCreateHandler detailCarCreateHandler = new DetailCarCreateHandler();
-        detailCarCreateHandler.runDetailHandler();
-        detailCarCreateHandler.getCollectionContent();
-        System.out.println(detailCarCreateHandler.toString());
+//        DetailCarCreateHandler detailCarCreateHandler = new DetailCarCreateHandler();
+//        detailCarCreateHandler.runDetailHandler();
+//        detailCarCreateHandler.getCollectionContent();
+//        System.out.println(detailCarCreateHandler.toString());
+        FastCarCreateHandler fastCarCreateHandler = new FastCarCreateHandler();
+        fastCarCreateHandler.createCar();
+        fastCarCreateHandler.getCarDetailsInfo(0);
     }
 }

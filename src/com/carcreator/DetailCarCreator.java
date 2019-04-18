@@ -20,6 +20,8 @@ import com.transmissioncreator.SemiAutomaticTransmission;
 import com.transmissioncreator.StandartTransmission;
 
 /*
+                                                Main car creator
+
     carDetail contains created object for car
     inddex 0 contains engine type
     inddex 1 contains transmission type
@@ -37,14 +39,14 @@ import com.transmissioncreator.StandartTransmission;
 
 public class DetailCarCreator {
 
-    public static int individualCarCounter;
+    public static int carCounter;
 
     public DetailCarCreator() {
-        individualCarCounter++;
+        carCounter++;
     }
 
     public int getIndividualCarCounter() {
-        return individualCarCounter;
+        return carCounter;
     }
 
     public void seeCarDetail() {
@@ -168,8 +170,8 @@ public class DetailCarCreator {
     @Override
     public String toString() {
 
-        return "Car specification:\n" + carDetails[0].toString() + "\n"+ carDetails[1].toString() + "\n"
+        return "Car specification:\n" + carDetails[0].toString() + "\n" + carDetails[1].toString() + "\n"
                 + carDetails[2].toString() + "\n" + carDetails[3].toString() + "\n"
-                    + carDetails[4].toString() + "\n";
+                + carDetails[4].toString() + "\n";
     }
 }
