@@ -1,6 +1,8 @@
 package com.interiorcreator;
 
-public abstract class Interior {
+import java.io.Serializable;
+
+public abstract class Interior implements Serializable {
 
     public abstract String getSeatsMaterial();
 

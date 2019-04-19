@@ -1,6 +1,8 @@
 package com.bodycreator;
 
-public abstract class Body {
+import java.io.Serializable;
+
+public abstract class Body implements Serializable {
 
     public abstract String getBodyType();
 

@@ -1,5 +1,7 @@
 package com.bodycreator;
 
+import java.io.Serializable;
+
 public class CoupeBody extends Body {
 
     private String bodytype = "Coupe";

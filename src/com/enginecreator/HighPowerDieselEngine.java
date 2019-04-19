@@ -43,7 +43,7 @@ public class HighPowerDieselEngine extends Engine {
         return "Engine model: HPD/-6-560-6.8";
     }
 
-    public int getHighPowerDieselEngineCounter() {
+    public static int getHighPowerDieselEngineCounter() {
         return highPowerDieselEngineCounter;
     }
 }

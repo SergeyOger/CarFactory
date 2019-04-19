@@ -1,6 +1,8 @@
 package com.suspensioncreator;
 
-public abstract class Suspension {
+import java.io.Serializable;
+
+public abstract class Suspension implements Serializable {
 
     public abstract String getComphortLevel();
 

@@ -43,7 +43,7 @@ public class HighPowerEngine extends Engine {
         return "Engine model: HP/-12-620-5.2";
     }
 
-    public int getHighEngineCounter() {
+    public static int getHighEngineCounter() {
         return highPowerEngineCounter;
     }
 }

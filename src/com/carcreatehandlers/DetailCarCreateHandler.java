@@ -1,12 +1,17 @@
-package com.createhandler;
+package com.carcreatehandlers;
 
-import com.carcreator.DetailCarCreator;
+import com.detailcarcreator.DetailCarCreator;
+import com.interfaces.ICreateHandler;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DetailCarCreateHandler {
+public class DetailCarCreateHandler implements ICreateHandler {
 
     private static String engineType;
     private static String readEngineType;
@@ -24,34 +29,12 @@ public class DetailCarCreateHandler {
         individualCarProjectCounter++;
     }
 
-    public static int getIndividualCarProjectCounter() {
-        return individualCarProjectCounter;
-    }
-
     Scanner scanner = new Scanner(System.in);
-    // Get info about previously created cars
-    public void getCollectionContent() {
-        orderedCar.size();
-        System.out.println(orderedCar.get(detailCarCreator.getIndividualCarCounter() - 1).toString());
-    }
-    // Collection for storage previously created rars
+
     List<Object> orderedCar = new ArrayList<>();
 
-    // need refactor
-    // Void for run detail car constructor
-    public void runDetailHandler() {
-        //List<Object> orderedCar = new ArrayList<>();
-        orderedCar.add((detailCarCreator.getIndividualCarCounter() - 1), detailCarCreator);
-        engineTypeReader();
-        bodyTypeReader();
-        transmissionTypeReader();
-        suspensionTypeReader();
-        interiorTypeReader();
-        detailCarCreator.seeCarDetail();
-    }
-
-    // new car car constructor
     DetailCarCreator detailCarCreator = new DetailCarCreator();
+
 
     // Create engine
     public void engineTypeReader() {
@@ -69,6 +52,7 @@ public class DetailCarCreateHandler {
             engineTypeReader();
         }
     }
+
     //Create transmission
     public void transmissionTypeReader() {
         System.out.printf("Select transmission type:\n1.Automatic transmission (AT)\n" +
@@ -84,7 +68,9 @@ public class DetailCarCreateHandler {
             transmissionTypeReader();
         }
     }
+
     //Create body
+
     public void bodyTypeReader() {
         System.out.printf("Select body type:\n1.Coupe (C)\n2.Sedan(S)\n3.SUV(SUV)\n");
         readBodyType = scanner.nextLine().toUpperCase();
@@ -98,6 +84,7 @@ public class DetailCarCreateHandler {
 
     }
     //Create suspension
+
     public void suspensionTypeReader() {
         System.out.printf("Select suspension type:\n1.Standart suspension (STDS)\n2.Comphort suspensio (CTS)\n" +
                 "3.Sport suspension (STS)\n4.Off-road suspension (ORS)\n");
@@ -112,6 +99,7 @@ public class DetailCarCreateHandler {
         }
     }
     //Create interior
+
     public void interiorTypeReader() {
         System.out.printf("Select interior type:\n1.Standart interior (STDI)\n2.Sport interior (STI)\n" +
                 "3.Wear resistant interior (WRI)\n");
@@ -124,6 +112,51 @@ public class DetailCarCreateHandler {
             System.out.println("Wrong input,please repeat the input");
             interiorTypeReader();
         }
+    }
+
+    @Override
+    public void runCreator() throws IOException {
+        engineTypeReader();
+        bodyTypeReader();
+        transmissionTypeReader();
+        suspensionTypeReader();
+        interiorTypeReader();
+        saveCreatedCarToCollection();
+        writeInfoToFile();
+    }
+
+    @Override
+    public void saveCreatedCarToCollection() {
+        orderedCar.add((individualCarProjectCounter - 1), detailCarCreator);
+    }
+
+    @Override
+    public void getInfoAboutCarDetails(int index) {
+
+        detailCarCreator.getDetailsType(index);
+    }
+
+    @Override
+    public void getInfoAboutCreatedCar() {
+        System.out.println(orderedCar.get((individualCarProjectCounter - 1)).toString());
+    }
+
+    public static int getCreatedCarCaunter() {
+        return individualCarProjectCounter;
+    }
+
+    public void writeInfoToFile() throws IOException {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("DetailsCreatedCars.bin"));
+            out.writeObject(orderedCar);
+            out.write(individualCarProjectCounter);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException io) {
+            System.out.println("Something went wrong");
+            io.printStackTrace();
+        }
+        System.out.printf("\nCar saved\n");
     }
 
 }

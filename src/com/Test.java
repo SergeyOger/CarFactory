@@ -1,7 +1,5 @@
 package com;
 
-import com.carcreator.DetailCarCreator;
-
 public class Test {
 //    public static void main(String[] args) {
 //        DetailCarCreator detailCarCreator = new DetailCarCreator();

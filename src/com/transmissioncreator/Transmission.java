@@ -1,6 +1,8 @@
 package com.transmissioncreator;
 
-public abstract class Transmission {
+import java.io.Serializable;
+
+public abstract class Transmission implements Serializable {
 
     public abstract String getTransmissionType();
 

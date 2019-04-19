@@ -1,6 +1,8 @@
 package com.enginecreator;
 
-public abstract class Engine {
+import java.io.Serializable;
+
+public abstract class Engine implements Serializable {
 
     public abstract double getEngineVolume();
 

@@ -1,4 +1,4 @@
-package com.carcreator;
+package com.detailcarcreator;
 
 import com.bodycreator.CoupeBody;
 import com.bodycreator.SUVBody;
@@ -19,9 +19,10 @@ import com.transmissioncreator.HeavyDutyTransmission;
 import com.transmissioncreator.SemiAutomaticTransmission;
 import com.transmissioncreator.StandartTransmission;
 
-/*
-                                                Main car creator
+import java.io.Serializable;
 
+/*
+    Main car creator
     carDetail contains created object for car
     inddex 0 contains engine type
     inddex 1 contains transmission type
@@ -30,14 +31,14 @@ import com.transmissioncreator.StandartTransmission;
     inddex 4 contains interior type
 
     To display all car info use "seeCarDetail()" void
-    To display a specific detail info use "getdetailsType()" void
+    To display a specific detail info use "getDetailsType()" void
  */
 
 
 //   this part work. dont tuch (see Test)
 
 
-public class DetailCarCreator {
+public class DetailCarCreator implements Serializable {
 
     public static int carCounter;
 
@@ -45,7 +46,7 @@ public class DetailCarCreator {
         carCounter++;
     }
 
-    public int getIndividualCarCounter() {
+    public int getAllCreatedCarCounter() {
         return carCounter;
     }
 
@@ -55,7 +56,7 @@ public class DetailCarCreator {
         }
     }
 
-    public void getdetailsType(int index) {
+    public void getDetailsType(int index) {
         System.out.println(carDetails[index].toString());
     }
 
@@ -111,17 +112,14 @@ public class DetailCarCreator {
             case "S":
                 SedanBody sedanBody = new SedanBody();
                 carDetails[2] = sedanBody;
-                ;
                 break;
             case "C":
                 CoupeBody coupeBody = new CoupeBody();
                 carDetails[2] = coupeBody;
-                ;
                 break;
             case "SUV":
                 SUVBody suvBody = new SUVBody();
                 carDetails[2] = suvBody;
-                ;
                 break;
         }
     }
