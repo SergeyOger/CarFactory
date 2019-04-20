@@ -5,9 +5,11 @@ public class WearResistantInterior extends Interior {
     private String upholsteryMaterial = "AcLcantara";
     private String dashboardType = "Digital";
     private static int wearResistantInteriorCounter;
+
     public WearResistantInterior() {
         wearResistantInteriorCounter++;
     }
+
     @Override
     public String getSeatsMaterial() {
         return seatsMaterial;
@@ -30,5 +32,14 @@ public class WearResistantInterior extends Interior {
     @Override
     public String toString() {
         return "Interior model: WRI/-CL-ANT-D";
+    }
+
+    @Override
+    public void getDetailDescription() {
+        System.out.println(String.format("%-17s", "Interior model:") + String.format("%15s", "SI/-C-C-D"));
+        System.out.println(String.format("%-17s", "Seats materil:") + String.format("%15s", seatsMaterial));
+        System.out.println(String.format("%-17s", "Upholstery material:") + String.format("%12s", upholsteryMaterial));
+        System.out.println(String.format("%-17s", "Dashboard type:") + String.format("%15s", dashboardType));
+        System.out.println();
     }
 }

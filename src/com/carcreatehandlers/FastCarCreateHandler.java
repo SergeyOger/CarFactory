@@ -22,13 +22,7 @@ public class FastCarCreateHandler implements ICreateHandler, Serializable {
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
-    List<Object> orderedStandartCars = new ArrayList<>();
-
-    // Get info for car details
-    public void getCarDetailsInfo(int index) {
-        System.out.println(detailCarCreator);
-
-    }
+    List<DetailCarCreator> orderedStandartCars = new ArrayList<>();
 
     public void writeInfoToFile() throws IOException {
         try {
@@ -75,12 +69,13 @@ public class FastCarCreateHandler implements ICreateHandler, Serializable {
         }
         saveCreatedCarToCollection();
         writeInfoToFile();
+        getInfoAboutCreatedCar();
+        returnToHandler();
     }
 
     @Override
     public void saveCreatedCarToCollection() {
         orderedStandartCars.add(fastCarsCounter - 1, detailCarCreator);
-
     }
 
     @Override
@@ -95,6 +90,16 @@ public class FastCarCreateHandler implements ICreateHandler, Serializable {
 
     public static int getCreatedCarCaunter() {
         return fastCarsCounter;
+    }
+
+    public void returnToHandler() throws IOException {
+        System.out.printf("For create new car insert (NEW)\nFor return to menu insert (RET)\n");
+        String handler = scanner.nextLine();
+        if (handler.equals("NEW")) {
+            runCreator();
+        } else if (handler.equals("RET")){
+            return;
+        }
     }
 
 }

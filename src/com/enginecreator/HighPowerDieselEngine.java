@@ -8,7 +8,7 @@ public class HighPowerDieselEngine extends Engine {
     private String fuelType = "Diesel";
     private int enginePower = 560;
     private static int highPowerDieselEngineCounter = 0;
-    
+
     public HighPowerDieselEngine() {
         highPowerDieselEngineCounter++;
     }
@@ -45,5 +45,15 @@ public class HighPowerDieselEngine extends Engine {
 
     public static int getHighPowerDieselEngineCounter() {
         return highPowerDieselEngineCounter;
+    }
+
+    @Override
+    public void getDetailDescription() {
+        System.out.println(String.format("%-17s", "Engine model:") + String.format("%15s", "MP/-6-350-2.5"));
+        System.out.println(String.format("%-17s", "Engine volume, L:") + String.format("%15.2f", engineVolume));
+        System.out.println(String.format("%-17s", "Engine type:") + String.format("%15s", engineType));
+        System.out.println(String.format("%-17s", "Fuel type:") + String.format("%15s", fuelType));
+        System.out.println(String.format("%-17s", "Engine power, HP:") + String.format("%15d", enginePower));
+        System.out.println();
     }
 }

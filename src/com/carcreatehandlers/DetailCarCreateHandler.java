@@ -3,15 +3,12 @@ package com.carcreatehandlers;
 import com.detailcarcreator.DetailCarCreator;
 import com.interfaces.ICreateHandler;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DetailCarCreateHandler implements ICreateHandler {
+public class DetailCarCreateHandler implements ICreateHandler, Serializable {
 
     private static String engineType;
     private static String readEngineType;
@@ -31,7 +28,7 @@ public class DetailCarCreateHandler implements ICreateHandler {
 
     Scanner scanner = new Scanner(System.in);
 
-    List<Object> orderedCar = new ArrayList<>();
+    List<DetailCarCreator> orderedCar = new ArrayList<>();
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
@@ -124,12 +121,12 @@ public class DetailCarCreateHandler implements ICreateHandler {
         saveCreatedCarToCollection();
         writeInfoToFile();
     }
-
+    //Write created car to collectoin
     @Override
     public void saveCreatedCarToCollection() {
         orderedCar.add((individualCarProjectCounter - 1), detailCarCreator);
     }
-
+    //get detail info for car details
     @Override
     public void getInfoAboutCarDetails(int index) {
 

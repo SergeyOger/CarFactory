@@ -22,19 +22,17 @@ import com.transmissioncreator.HeavyDutyTransmission;
 import com.transmissioncreator.SemiAutomaticTransmission;
 import com.transmissioncreator.StandartTransmission;
 
-import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 public class InfoModule {
-    private static String standartFilePath = "FastCreatedCars.bin";
-
-    // Need refactor all about file@!!!@@
+    private static String standartCarList = "FastCreatedCars.bin";
 
     public static Object readFile() {
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(standartFilePath))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(standartCarList))) {
             Object readedObject = ois.readObject();
             ois.close();
             return readedObject;
@@ -47,13 +45,12 @@ public class InfoModule {
     }
 
     public static void getReadedFile() {
-        Object createdCars = readFile();
-        System.out.println(createdCars.toString());
+
     }
 
 
-
     public InfoModule() throws IOException {
+
     }
 
     public static void getDetailCarCounter() {

@@ -33,4 +33,13 @@ public class AutomaticTransmission extends Transmission {
     public static int getAutomaticTransmissionCounter() {
         return automaticTransmissionCounter;
     }
+
+    @Override
+    public void getDetailDescription() {
+        System.out.println(String.format("%-17s", "Transmission model:") + String.format("%13s", "AUT/-5-2WDTR"));
+        System.out.println(String.format("%-17s", "Transmission type:") + String.format("%14s", transmissionType));
+        System.out.println(String.format("%-17s", "Number of gears:") + String.format("%15d", numberOfGears));
+        System.out.println(String.format("%-17s", "Type of drives:") + String.format("%15s", typeOfDrive));
+        System.out.println();
+    }
 }

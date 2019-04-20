@@ -34,10 +34,6 @@ import java.io.Serializable;
     To display a specific detail info use "getDetailsType()" void
  */
 
-
-//   this part work. dont tuch (see Test)
-
-
 public class DetailCarCreator implements Serializable {
 
     public static int carCounter;

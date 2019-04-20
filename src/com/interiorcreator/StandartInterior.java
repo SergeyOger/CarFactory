@@ -34,4 +34,13 @@ public class StandartInterior extends Interior {
     public String toString() {
         return "Interior model: STDI/-CL-CL-A";
     }
+
+    @Override
+    public void getDetailDescription() {
+        System.out.println(String.format("%-17s", "Interior model:") + String.format("%15s", "SI/-C-C-D"));
+        System.out.println(String.format("%-17s", "Seats materil:") + String.format("%15s", seatsMaterial));
+        System.out.println(String.format("%-17s", "Upholstery material:") + String.format("%12s", upholsteryMaterial));
+        System.out.println(String.format("%-17s", "Dashboard type:") + String.format("%15s", dashboardType));
+        System.out.println();
+    }
 }

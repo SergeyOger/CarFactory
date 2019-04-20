@@ -42,7 +42,7 @@ public class MainHandler {
         System.out.printf("There are 2 options for creating a car:\n " +
                 "1.The choice of the standard options (STD)\n" +
                 "2.Individual selection of the installed nodes (IND)\n" +
-                "For return to menu, insert (RETURN)\n");
+                "For return to menu, insert (RET)\n");
         System.out.println("Select a creation method");
         comandReader = scanner.nextLine().toUpperCase();
         if (comandReader.equals("STD")) {
@@ -51,7 +51,7 @@ public class MainHandler {
         } else if (comandReader.equals("IND")) {
             DetailCarCreateHandler detailCarCreateHandler = new DetailCarCreateHandler();
             detailCarCreateHandler.runCreator();
-        } else if (comandReader.equals("RETURN")) {
+        } else if (comandReader.equals("RET")) {
             returnToMenu();
         } else {
             System.out.println("Incorrect input, repeat input");
