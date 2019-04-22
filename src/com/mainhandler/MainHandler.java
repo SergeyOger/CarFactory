@@ -1,7 +1,7 @@
 package com.mainhandler;
 
+import com.carcreatehandlers.DetailCarCreateHandler;
 import com.carcreatehandlers.FastCarCreateHandler;
-import com.infomodule.InfoModule;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -50,8 +50,8 @@ public class MainHandler {
             FastCarCreateHandler fastCarCreateHandler = new FastCarCreateHandler();
             fastCarCreateHandler.runCreator();
         } else if (comandReader.equals("IND")) {
-            //DetailCarCreateHandler detailCarCreateHandler = new DetailCarCreateHandler();
-            //detailCarCreateHandler.runCreator();
+            DetailCarCreateHandler detailCarCreateHandler = new DetailCarCreateHandler();
+            detailCarCreateHandler.runCreator();
         } else if (comandReader.equals("RET")) {
             returnToMenu();
         } else {

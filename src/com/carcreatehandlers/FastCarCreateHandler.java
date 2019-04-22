@@ -20,11 +20,17 @@ public class FastCarCreateHandler implements ICreateHandler {
     private String carType;
     private String carColour;
     private String directionOfTheProgram;
+    private int fastCarCreateHandlerCounter;
+
+    public FastCarCreateHandler() {
+        fastCarCreateHandlerCounter++;             //Add file for saving this counter and void for reading it from file
+    }
 
     Scanner scanner = new Scanner(System.in);
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
+    // Void for creating standart models cars
     @Override
     public void runCreator() throws IOException, ClassNotFoundException {
         System.out.println("Change standart car model:");
@@ -60,6 +66,7 @@ public class FastCarCreateHandler implements ICreateHandler {
         detailCarCreator.seeCarDetail();
     }
 
+    // Void for change direction of the program
     @Override
     public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
         System.out.printf("\nGet info about car (INFO)\nFor creating new car insert (NEW)" +
@@ -79,8 +86,8 @@ public class FastCarCreateHandler implements ICreateHandler {
     // Void for saving created car to file
     @Override
     public void saveCreatedCar() {
-        InfoHandler.writeCarCounter(detailCarCreator.getAllCreatedCarCounter(),InfoModule.CAR_COUNTER);
-        InfoHandler.writeCarCounter(detailCarCreator.getOrderCounter(),InfoModule.ORDER_COUNTER);
+        InfoHandler.writeCarCounter(detailCarCreator.getAllCreatedCarCounter(), InfoModule.CAR_COUNTER);
+        InfoHandler.writeCarCounter(detailCarCreator.getOrderCounter(), InfoModule.ORDER_COUNTER);
         InfoHandler.saveCreationObjectToFile(detailCarCreator.createdEngines, InfoModule.ENGINES);
         InfoHandler.saveCreationObjectToFile(detailCarCreator.createdTransmissions, InfoModule.TRANSMISSIONS);
         InfoHandler.saveCreationObjectToFile(detailCarCreator.createdBodys, InfoModule.BODIES);
