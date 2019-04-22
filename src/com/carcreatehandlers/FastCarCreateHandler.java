@@ -1,105 +1,118 @@
+// Reed before created car counter
+// Create new car
+// Save car or create new
+// return to menu
+
 package com.carcreatehandlers;
 
 import com.detailcarcreator.DetailCarCreator;
+import com.infomodule.InfoHandler;
+import com.infomodule.InfoModule;
 import com.interfaces.ICreateHandler;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class FastCarCreateHandler implements ICreateHandler, Serializable {
+import static com.mainhandler.MainHandler.runHandler;
 
-    private static String carType;
-    private static int fastCarsCounter;
+public class FastCarCreateHandler implements ICreateHandler {
 
-    public FastCarCreateHandler() {
-        fastCarsCounter++;
-    }
-
+    private String carType;
+    private String carColour;
+    private String directionOfTheProgram;
 
     Scanner scanner = new Scanner(System.in);
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
-    List<DetailCarCreator> orderedStandartCars = new ArrayList<>();
+    @Override
+    public void runCreator() throws IOException, ClassNotFoundException {
+        System.out.println("Change standart car model:");
+        System.out.printf("\n1.City car (CITY)\n2.Sport car (SPORT)\n3.Off-road car (SUV)\n");
+        carType = scanner.nextLine().toUpperCase().trim();
+        switch (carType) {
+            case "CITY":
+                System.out.println("Insert car colour");
+                carColour = scanner.nextLine().toUpperCase().trim();
+                createCityCar(carColour);
+                break;
+            case "SPORT":
+                System.out.println("Insert car colour");
+                carColour = scanner.nextLine().toUpperCase().trim();
+                createSportCar(carColour);
+                break;
+            case "SUV":
+                System.out.println("Insert car colour");
+                carColour = scanner.nextLine().toUpperCase().trim();
+                createSUV(carColour);
+                break;
+            default:
+                System.out.println("Incorrect input, try again");
+                runCreator();
 
-    public void writeInfoToFile() throws IOException {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("FastCreatedCars.bin"));
-            out.writeObject(orderedStandartCars);
-            out.write(fastCarsCounter);
-        } catch (FileNotFoundException e) {
-            System.out.printf("\nFile not found\n");
-        } catch (IOException io) {
-            System.out.printf("\nSomething went wrong\n");
-            io.printStackTrace();
-            runCreator();
         }
-        System.out.printf("\nCar saved\n");
-
+        changeTheDirectionOfTheProgram();
     }
 
-    @Override
-    public void runCreator() throws IOException {
-        System.out.printf("\nSelect typical car models:\n1.City car (CITY)\n2.Sport car(SPORT)\n3.Off-road car (SUV)");
-        carType = scanner.nextLine().toUpperCase();
-
-        if (carType.equals("CITY")) {
-            detailCarCreator.changeEngine("LPE");
-            detailCarCreator.changeTransmission("SMT");
-            detailCarCreator.changeBody("S");
-            detailCarCreator.changeSuspension("STDS");
-            detailCarCreator.changeInterior("STDI");
-        } else if (carType.equals("SPORT")) {
-            detailCarCreator.changeEngine("HPE");
-            detailCarCreator.changeTransmission("SAT");
-            detailCarCreator.changeBody("C");
-            detailCarCreator.changeSuspension("STS");
-            detailCarCreator.changeInterior("STI");
-        } else if (carType.equals("SUV")) {
-            detailCarCreator.changeEngine("HPDE");
-            detailCarCreator.changeTransmission("HDMT");
-            detailCarCreator.changeBody("SUV");
-            detailCarCreator.changeSuspension("ORS");
-            detailCarCreator.changeInterior("WRI");
-        } else {
-            System.out.println("Wrong insert, please try again");
-            runCreator();
-        }
-        saveCreatedCarToCollection();
-        writeInfoToFile();
-        getInfoAboutCreatedCar();
-        returnToHandler();
-    }
-
-    @Override
-    public void saveCreatedCarToCollection() {
-        orderedStandartCars.add(fastCarsCounter - 1, detailCarCreator);
-    }
-
-    @Override
-    public void getInfoAboutCarDetails(int index) {
-        detailCarCreator.getDetailsType(index);
-    }
-
+    // Display detail info about created car
     @Override
     public void getInfoAboutCreatedCar() {
-        System.out.println(orderedStandartCars.get((fastCarsCounter - 1)).toString());
+        detailCarCreator.seeCarDetail();
     }
 
-    public static int getCreatedCarCaunter() {
-        return fastCarsCounter;
-    }
-
-    public void returnToHandler() throws IOException {
-        System.out.printf("For create new car insert (NEW)\nFor return to menu insert (RET)\n");
-        String handler = scanner.nextLine();
-        if (handler.equals("NEW")) {
+    @Override
+    public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
+        System.out.printf("\nGet info about car (INFO)\nFor creating new car insert (NEW)" +
+                "\nFor save your car order and return to menu insert (SAVE)\n");
+        directionOfTheProgram = scanner.nextLine().toUpperCase().trim();
+        if (directionOfTheProgram.equals("INFO")) {
+            getInfoAboutCreatedCar();
+            changeTheDirectionOfTheProgram();
+        } else if (directionOfTheProgram.equals("NEW")) {
             runCreator();
-        } else if (handler.equals("RET")){
-            return;
+        } else if (directionOfTheProgram.equals("SAVE")) {
+            saveCreatedCar();
+            runHandler(); // Return to main menu
         }
+    }
+
+    // Void for saving created car to file
+    @Override
+    public void saveCreatedCar() {
+        InfoHandler.writeCarCounter(detailCarCreator.getAllCreatedCarCounter(),InfoModule.CAR_COUNTER);
+        InfoHandler.writeCarCounter(detailCarCreator.getOrderCounter(),InfoModule.ORDER_COUNTER);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdEngines, InfoModule.ENGINES);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdTransmissions, InfoModule.TRANSMISSIONS);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdBodys, InfoModule.BODIES);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdSuspensions, InfoModule.SUSPENSIONS);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdInteriors, InfoModule.INTERIORS);
+    }
+
+    // Void for creating typical city car
+    private void createCityCar(String carColour) {
+        detailCarCreator.changeEngine("LPE");
+        detailCarCreator.changeTransmission("SMT");
+        detailCarCreator.changeBody("S", carColour);
+        detailCarCreator.changeSuspension("STDS");
+        detailCarCreator.changeInterior("STDI");
+    }
+
+    // Void for creating typical sport car
+    private void createSportCar(String carColour) {
+        detailCarCreator.changeEngine("HPE");
+        detailCarCreator.changeTransmission("SAT");
+        detailCarCreator.changeBody("C", carColour);
+        detailCarCreator.changeSuspension("STS");
+        detailCarCreator.changeInterior("STI");
+    }
+
+    // Void for creating typical SUV car
+    private void createSUV(String carColour) {
+        detailCarCreator.changeEngine("HPDE");
+        detailCarCreator.changeTransmission("HDMT");
+        detailCarCreator.changeBody("SUV", carColour);
+        detailCarCreator.changeSuspension("ORS");
+        detailCarCreator.changeInterior("WRI");
     }
 
 }

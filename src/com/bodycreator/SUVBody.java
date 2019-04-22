@@ -2,15 +2,16 @@ package com.bodycreator;
 
 public class SUVBody extends Body {
 
-    private static String bodyType = "SUV";
-    private static String bodyMaterial = "Steel";
-    private static int numberOfSeats = 7;
-    private static String bodyColour = "Black";
-    private static int numberOfDoors = 5;
-    private static String bodyModel = "SUB/-7-5STL";
+    private String bodyType = "SUV";
+    private String bodyMaterial = "Steel";
+    private int numberOfSeats = 7;
+    private String bodyColour = "Black";
+    private int numberOfDoors = 5;
+    private String bodyModel = "SUB/-7-5STL";
     private static int suvBodyCounter;
 
-    public SUVBody() {
+    public SUVBody(String bodyColour) {
+        this.bodyColour = bodyColour;
         suvBodyCounter++;
     }
 
@@ -53,7 +54,7 @@ public class SUVBody extends Body {
         return "Body model: SUB/-7-5STL";
     }
 
-    public static void getDetailDescription() {
+    public void getDetailDescription() {
         System.out.println(String.format("%-17s", "Body model:") + String.format("%15s", bodyModel));
         System.out.println(String.format("%-17s", "Body type:") + String.format("%15s", bodyType));
         System.out.println(String.format("%-17s", "Body material:") + String.format("%15s", bodyMaterial));

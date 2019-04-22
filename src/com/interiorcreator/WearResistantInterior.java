@@ -2,7 +2,7 @@ package com.interiorcreator;
 
 public class WearResistantInterior extends Interior {
     private String seatsMaterial = "The cloth";
-    private String upholsteryMaterial = "AcLcantara";
+    private String upholsteryMaterial = "Alcantara";
     private String dashboardType = "Digital";
     private static int wearResistantInteriorCounter;
 

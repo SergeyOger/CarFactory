@@ -2,14 +2,15 @@ package com.bodycreator;
 
 public class SedanBody extends Body {
 
-    private static String bodytype = "Sedan";
-    private static String bodyMaterial = "Steel";
-    private static int numberOfSeats = 4;
-    private static String bodyColour = "Grey";
-    private static int numberOfDoors = 4;
+    private String bodytype = "Sedan";
+    private String bodyMaterial = "Steel";
+    private int numberOfSeats = 4;
+    private String bodyColour = "Grey";
+    private int numberOfDoors = 4;
     private static int sedanBodyCoubter;
 
-    public SedanBody() {
+    public SedanBody(String bodyColour) {
+        this.bodyColour = bodyColour;
         sedanBodyCoubter++;
     }
 
@@ -52,7 +53,7 @@ public class SedanBody extends Body {
         return "Body model: SB/-4-4STL";
     }
 
-    public static void getDetailDescription() {
+    public void getDetailDescription() {
         System.out.println(String.format("%-17s", "Body model:") + String.format("%15s", "CUB/-2-2AL"));
         System.out.println(String.format("%-17s", "Body type:") + String.format("%15s", bodytype));
         System.out.println(String.format("%-17s", "Body material:") + String.format("%15s", bodyMaterial));

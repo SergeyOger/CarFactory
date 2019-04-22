@@ -4,12 +4,12 @@ import java.io.IOException;
 
 public interface ICreateHandler {
 
-    public void runCreator() throws IOException;
-
-    public void saveCreatedCarToCollection();
-
-    public void getInfoAboutCarDetails(int index);
+    public void runCreator() throws IOException, ClassNotFoundException;
 
     public void getInfoAboutCreatedCar();
+
+    public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException;
+
+    public void saveCreatedCar();
 
 }
