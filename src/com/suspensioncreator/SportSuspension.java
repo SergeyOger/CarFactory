@@ -1,9 +1,14 @@
 package com.suspensioncreator;
 
+import static com.infomodule.InfoHandler.SuspensionsE;
+import static com.infomodule.InfoHandler.setSuspensionsDescription;
+
 public class SportSuspension extends Suspension {
-    private String comphortLevel = "Low";
-    private int clearense = 120;
-    private int suspensionTreavel = 50;
+
+    private static String suspensionModel = SuspensionsE.STS.getSuspensionModel();
+    private static String comphortLevel = SuspensionsE.STS.getComphortLevel();
+    private static int clearense = SuspensionsE.STS.getClearense();
+    private static int suspensionTreavel = SuspensionsE.STS.getSuspensionTreavel();
     private static int sportSuspensionCounter;
 
     public SportSuspension() {
@@ -25,21 +30,21 @@ public class SportSuspension extends Suspension {
         return suspensionTreavel;
     }
 
-    public static int getSportSuspensionCounter() {
-        return sportSuspensionCounter;
-    }
-
     @Override
     public String toString() {
-        return "Suspension model: SP/-L120-50";
+        return suspensionModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Suspension model:") + String.format("%15s", "SP/-L120-50"));
-        System.out.println(String.format("%-17s", "Comphort level:") + String.format("%15s", comphortLevel));
-        System.out.println(String.format("%-17s", "Suspension clearense:") + String.format("%11d", clearense));
-        System.out.println(String.format("%-17s", "Suspension treavel:") + String.format("%13d", suspensionTreavel));
-        System.out.println();
+        setSuspensionsDescription(suspensionModel, comphortLevel, clearense, suspensionTreavel);
+    }
+
+    public static void setCounter(int counter) {
+        sportSuspensionCounter = counter;
+    }
+
+    public static int getCounter() {
+        return sportSuspensionCounter;
     }
 }

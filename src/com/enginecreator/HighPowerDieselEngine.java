@@ -1,13 +1,16 @@
 package com.enginecreator;
 
+import static com.infomodule.InfoHandler.*;
+
 public class HighPowerDieselEngine extends Engine {
 
-    private double engineVolume = 6.8;
-    private int cilindersNumber = 6;
-    private String engineType = "Diesel";
-    private String fuelType = "Diesel";
-    private int enginePower = 560;
-    private static int highPowerDieselEngineCounter = 0;
+    private static String engineModel = EnginesE.HPDE.getEngineModel();
+    private static double engineVolume = EnginesE.HPDE.getEngineVolume();
+    private static int cilindersNumber = EnginesE.HPDE.getCilindersNumber();
+    private static String fuelType = Fuel.DIESEL.getFuelType();
+    private static String fuelMark = Fuel.DIESEL.getFuelMark();
+    private static int enginePower = EnginesE.HPDE.getEnginePower();
+    private static int highPowerDieselEngineCounter;
 
     public HighPowerDieselEngine() {
         highPowerDieselEngineCounter++;
@@ -24,8 +27,8 @@ public class HighPowerDieselEngine extends Engine {
     }
 
     @Override
-    public String getEngineType() {
-        return engineType;
+    public String getFuelMark() {
+        return fuelMark;
     }
 
     @Override
@@ -40,20 +43,18 @@ public class HighPowerDieselEngine extends Engine {
 
     @Override
     public String toString() {
-        return "Engine model: HPD/-6-560-6.8";
+        return engineModel;
     }
 
-    public static int getHighPowerDieselEngineCounter() {
-        return highPowerDieselEngineCounter;
-    }
-
-    @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Engine model:") + String.format("%15s", "MP/-6-350-2.5"));
-        System.out.println(String.format("%-17s", "Engine volume, L:") + String.format("%15.2f", engineVolume));
-        System.out.println(String.format("%-17s", "Engine type:") + String.format("%15s", engineType));
-        System.out.println(String.format("%-17s", "Fuel type:") + String.format("%15s", fuelType));
-        System.out.println(String.format("%-17s", "Engine power, HP:") + String.format("%15d", enginePower));
-        System.out.println();
+        setEngineDescription(engineModel, engineVolume, cilindersNumber, fuelType, fuelMark, enginePower);
+    }
+
+    public static void setCounter(int counter) {
+        highPowerDieselEngineCounter = counter;
+    }
+
+    public static int getCounter() {
+        return highPowerDieselEngineCounter;
     }
 }

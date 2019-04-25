@@ -1,9 +1,14 @@
 package com.transmissioncreator;
 
+import static com.infomodule.InfoHandler.TransmissionsE;
+import static com.infomodule.InfoHandler.setTransmissionDescription;
+
 public class AutomaticTransmission extends Transmission {
-    private String transmissionType = "Automatic";
-    private int numberOfGears = 5;
-    private String typeOfDrive = "2 wheel drive";
+
+    private static String transmissionModel = TransmissionsE.AT.getTransmissionModel();
+    private static String transmissionType = TransmissionsE.AT.getTransmissionType();
+    private static int numberOfGears = TransmissionsE.AT.getNumberOfGears();
+    private static String typeOfDrive = TransmissionsE.AT.getTypeOfDrive();
     private static int automaticTransmissionCounter;
 
     public AutomaticTransmission() {
@@ -27,19 +32,19 @@ public class AutomaticTransmission extends Transmission {
 
     @Override
     public String toString() {
-        return "Transmission model: AUT/-5-2WDTR";
-    }
-
-    public static int getAutomaticTransmissionCounter() {
-        return automaticTransmissionCounter;
+        return transmissionModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Transmission model:") + String.format("%13s", "AUT/-5-2WDTR"));
-        System.out.println(String.format("%-17s", "Transmission type:") + String.format("%14s", transmissionType));
-        System.out.println(String.format("%-17s", "Number of gears:") + String.format("%15d", numberOfGears));
-        System.out.println(String.format("%-17s", "Type of drives:") + String.format("%15s", typeOfDrive));
-        System.out.println();
+        setTransmissionDescription(transmissionModel, transmissionType, numberOfGears, typeOfDrive);
+    }
+
+    public static void setCounter(int counter) {
+        automaticTransmissionCounter = counter;
+    }
+
+    public static int getCounter() {
+        return automaticTransmissionCounter;
     }
 }

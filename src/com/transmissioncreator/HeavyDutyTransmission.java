@@ -1,9 +1,12 @@
 package com.transmissioncreator;
 
+import static com.infomodule.InfoHandler.*;
+
 public class HeavyDutyTransmission extends Transmission {
-    private String transmissionType = "Manual";
-    private int numberOfGears = 6;
-    private String typeOfDrive = "4 wheel drive";
+    private static String transmissionModel = TransmissionsE.HDMT.getTransmissionModel();
+    private static String transmissionType = TransmissionsE.HDMT.getTransmissionType();
+    private static int numberOfGears = TransmissionsE.HDMT.getNumberOfGears();
+    private static String typeOfDrive = TransmissionsE.HDMT.getTypeOfDrive();
     private static int heavyDutyTransmissionCounter;
 
     public HeavyDutyTransmission() {
@@ -27,19 +30,19 @@ public class HeavyDutyTransmission extends Transmission {
 
     @Override
     public String toString() {
-        return "Transmission model: HDT/-6-4WDTR";
-    }
-
-    public static int getHeavyDutyTransmissionCounter() {
-        return heavyDutyTransmissionCounter;
+        return transmissionModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Transmission model:") + String.format("%13s", "HDT/-6-4WDTR"));
-        System.out.println(String.format("%-17s", "Transmission type:") + String.format("%14s", transmissionType));
-        System.out.println(String.format("%-17s", "Number of gears:") + String.format("%15d", numberOfGears));
-        System.out.println(String.format("%-17s", "Type of drives:") + String.format("%15s", typeOfDrive));
-        System.out.println();
+        setTransmissionDescription(transmissionModel,transmissionType,numberOfGears,typeOfDrive);
+    }
+
+    public static void setCounter(int counter) {
+        heavyDutyTransmissionCounter = counter;
+    }
+
+    public static int getCounter() {
+        return heavyDutyTransmissionCounter;
     }
 }

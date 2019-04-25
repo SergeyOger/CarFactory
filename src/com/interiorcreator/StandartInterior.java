@@ -1,10 +1,14 @@
 package com.interiorcreator;
 
+import static com.infomodule.InfoHandler.InteriorsE;
+import static com.infomodule.InfoHandler.setInteriorsDescription;
+
 public class StandartInterior extends Interior {
 
-    private String seatsMaterial = "The cloth";
-    private String upholsteryMaterial = "The cloth";
-    private String dashboardType = "Analog";
+    private static String interiorModel = InteriorsE.STDI.getInteriorModel();
+    private static String seatsMaterial = InteriorsE.STDI.getSeatsMaterial();
+    private static String upholsteryMaterial = InteriorsE.STDI.getUpholsteryMaterial();
+    private static String dashboardType = InteriorsE.STDI.getDashboardType();
     private static int standartInteriorCounter;
 
     public StandartInterior() {
@@ -26,21 +30,21 @@ public class StandartInterior extends Interior {
         return dashboardType;
     }
 
-    public static int getStandartInteriorCounter() {
-        return standartInteriorCounter;
-    }
-
     @Override
     public String toString() {
-        return "Interior model: STDI/-CL-CL-A";
+        return interiorModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Interior model:") + String.format("%15s", "SI/-C-C-D"));
-        System.out.println(String.format("%-17s", "Seats materil:") + String.format("%15s", seatsMaterial));
-        System.out.println(String.format("%-17s", "Upholstery material:") + String.format("%12s", upholsteryMaterial));
-        System.out.println(String.format("%-17s", "Dashboard type:") + String.format("%15s", dashboardType));
-        System.out.println();
+        setInteriorsDescription(interiorModel, seatsMaterial, upholsteryMaterial, dashboardType);
+    }
+
+    public static void setCounter(int counter) {
+        standartInteriorCounter = counter;
+    }
+
+    public static int getCounter() {
+        return standartInteriorCounter;
     }
 }

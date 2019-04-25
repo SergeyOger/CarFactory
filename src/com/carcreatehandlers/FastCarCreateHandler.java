@@ -7,12 +7,12 @@ package com.carcreatehandlers;
 
 import com.detailcarcreator.DetailCarCreator;
 import com.infomodule.InfoHandler;
-import com.infomodule.InfoModule;
 import com.interfaces.ICreateHandler;
 
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.infomodule.InfoHandler.*;
 import static com.mainhandler.MainHandler.runHandler;
 
 public class FastCarCreateHandler implements ICreateHandler {
@@ -20,21 +20,31 @@ public class FastCarCreateHandler implements ICreateHandler {
     private String carType;
     private String carColour;
     private String directionOfTheProgram;
-    private int fastCarCreateHandlerCounter;
+    private static int fastCarCreateHandlerCounter; // // counter index in oterCounters 3
 
     public FastCarCreateHandler() {
-        fastCarCreateHandlerCounter++;             //Add file for saving this counter and void for reading it from file
+        fastCarCreateHandlerCounter = InfoHandler.readCounterForInfoModule(5,3);
+        fastCarCreateHandlerCounter++;
     }
 
     Scanner scanner = new Scanner(System.in);
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
+    public static int getFastCarCreateHandlerCounter() {
+        return fastCarCreateHandlerCounter;
+    }
+
     // Void for creating standart models cars
     @Override
     public void runCreator() throws IOException, ClassNotFoundException {
-        System.out.println("Change standart car model:");
-        System.out.printf("\n1.City car (CITY)\n2.Sport car (SPORT)\n3.Off-road car (SUV)\n");
+        getMenuItemSeparator();
+        setTextFormater("Change standart car model :", "");
+        getTextSeparator();
+        setTextFormater("1.City car :", "(CITY)");
+        setTextFormater("2.Sport car :","(SPORT)");
+        setTextFormater("3.Off-road car :", "(SUV)");
+        getMenuItemSeparator();
         carType = scanner.nextLine().toUpperCase().trim();
         switch (carType) {
             case "CITY":
@@ -69,8 +79,11 @@ public class FastCarCreateHandler implements ICreateHandler {
     // Void for change direction of the program
     @Override
     public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
-        System.out.printf("\nGet info about car (INFO)\nFor creating new car insert (NEW)" +
-                "\nFor save your car order and return to menu insert (SAVE)\n");
+        getMenuItemSeparator();
+        setTextFormater("Get info about car :", "(INFO)");
+        setTextFormater("For creating new car insert :","(NEW)");
+        setTextFormater("For save your order and return to menu insert :", "(SAVE)");
+        getMenuItemSeparator();
         directionOfTheProgram = scanner.nextLine().toUpperCase().trim();
         if (directionOfTheProgram.equals("INFO")) {
             getInfoAboutCreatedCar();
@@ -80,19 +93,22 @@ public class FastCarCreateHandler implements ICreateHandler {
         } else if (directionOfTheProgram.equals("SAVE")) {
             saveCreatedCar();
             runHandler(); // Return to main menu
+        } else {
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
+            changeTheDirectionOfTheProgram();
         }
     }
 
     // Void for saving created car to file
     @Override
     public void saveCreatedCar() {
-        InfoHandler.writeCarCounter(detailCarCreator.getAllCreatedCarCounter(), InfoModule.CAR_COUNTER);
-        InfoHandler.writeCarCounter(detailCarCreator.getOrderCounter(), InfoModule.ORDER_COUNTER);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdEngines, InfoModule.ENGINES);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdTransmissions, InfoModule.TRANSMISSIONS);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdBodys, InfoModule.BODIES);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdSuspensions, InfoModule.SUSPENSIONS);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdInteriors, InfoModule.INTERIORS);
+        detailCarCreator.addCountersToList(3,fastCarCreateHandlerCounter);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.counters, InfoHandler.COUNTERS);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdEngines, InfoHandler.ENGINES);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdTransmissions, InfoHandler.TRANSMISSIONS);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdBodys, InfoHandler.BODIES);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdSuspensions, InfoHandler.SUSPENSIONS);
+        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdInteriors, InfoHandler.INTERIORS);
     }
 
     // Void for creating typical city car

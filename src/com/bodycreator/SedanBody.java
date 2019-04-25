@@ -1,17 +1,21 @@
 package com.bodycreator;
 
+import static com.infomodule.InfoHandler.BodiesE;
+import static com.infomodule.InfoHandler.setBodiesDescription;
+
 public class SedanBody extends Body {
 
-    private String bodytype = "Sedan";
-    private String bodyMaterial = "Steel";
-    private int numberOfSeats = 4;
-    private String bodyColour = "Grey";
-    private int numberOfDoors = 4;
-    private static int sedanBodyCoubter;
+    private static String bodyModel = BodiesE.S.getBodyModel();
+    private static String bodytype = BodiesE.S.getBodyType();
+    private static String bodyMaterial = BodiesE.S.getBodyMaterial();
+    private static int numberOfSeats = BodiesE.S.getNumberOfSeats();
+    private static String bodyColour;
+    private static int numberOfDoors = BodiesE.S.getNumberOfDoors();
+    private static int sedanBodyCounter;
 
     public SedanBody(String bodyColour) {
         this.bodyColour = bodyColour;
-        sedanBodyCoubter++;
+        sedanBodyCounter++;
     }
 
     @Override
@@ -44,22 +48,20 @@ public class SedanBody extends Body {
         return numberOfDoors;
     }
 
-    public static int getSedanBodyCoubter() {
-        return sedanBodyCoubter;
+    public static void setCounter(int counter) {
+        sedanBodyCounter = counter;
+    }
+
+    public static int getCounter() {
+        return sedanBodyCounter;
     }
 
     @Override
     public String toString() {
-        return "Body model: SB/-4-4STL";
+        return bodyModel;
     }
 
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Body model:") + String.format("%15s", "CUB/-2-2AL"));
-        System.out.println(String.format("%-17s", "Body type:") + String.format("%15s", bodytype));
-        System.out.println(String.format("%-17s", "Body material:") + String.format("%15s", bodyMaterial));
-        System.out.println(String.format("%-17s", "Number of seats:") + String.format("%15d", numberOfSeats));
-        System.out.println(String.format("%-17s", "Body colour:") + String.format("%15s", bodyColour));
-        System.out.println(String.format("%-17s", "Number of doors:") + String.format("%15d", numberOfDoors));
-        System.out.println();
+        setBodiesDescription(bodyModel, bodytype, bodyMaterial, bodyColour, numberOfSeats, numberOfDoors);
     }
 }

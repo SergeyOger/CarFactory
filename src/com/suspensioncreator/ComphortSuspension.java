@@ -1,9 +1,14 @@
 package com.suspensioncreator;
 
+import static com.infomodule.InfoHandler.SuspensionsE;
+import static com.infomodule.InfoHandler.setSuspensionsDescription;
+
 public class ComphortSuspension extends Suspension {
-    private String comphortLevel = "High";
-    private int clearense = 250;
-    private int suspensionTreavel = 100;
+
+    private static String suspensionModel = SuspensionsE.CTS.getSuspensionModel();
+    private static String comphortLevel = SuspensionsE.CTS.getComphortLevel();
+    private static int clearense = SuspensionsE.CTS.getClearense();
+    private static int suspensionTreavel = SuspensionsE.CTS.getSuspensionTreavel();
     private static int comphortSuspensionCounter;
 
     public ComphortSuspension() {
@@ -25,21 +30,21 @@ public class ComphortSuspension extends Suspension {
         return suspensionTreavel;
     }
 
-    public static int getComphortSuspensionCounter() {
-        return comphortSuspensionCounter;
-    }
-
     @Override
     public String toString() {
-        return "Suspension model: CS/-H250-100";
+        return suspensionModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Suspension model:") + String.format("%15s", "CS/-H250-100"));
-        System.out.println(String.format("%-17s", "Comphort level:") + String.format("%15s", comphortLevel));
-        System.out.println(String.format("%-17s", "Suspension clearense:") + String.format("%11d", clearense));
-        System.out.println(String.format("%-17s", "Suspension treavel:") + String.format("%13d", suspensionTreavel));
-        System.out.println();
+        setSuspensionsDescription(suspensionModel, comphortLevel, clearense, suspensionTreavel);
+    }
+
+    public static void setCounter(int counter) {
+        comphortSuspensionCounter = counter;
+    }
+
+    public static int getCounter() {
+        return comphortSuspensionCounter;
     }
 }

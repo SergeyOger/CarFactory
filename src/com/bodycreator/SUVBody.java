@@ -1,13 +1,16 @@
 package com.bodycreator;
 
+import static com.infomodule.InfoHandler.BodiesE;
+import static com.infomodule.InfoHandler.setBodiesDescription;
+
 public class SUVBody extends Body {
 
-    private String bodyType = "SUV";
-    private String bodyMaterial = "Steel";
-    private int numberOfSeats = 7;
-    private String bodyColour = "Black";
-    private int numberOfDoors = 5;
-    private String bodyModel = "SUB/-7-5STL";
+    private static String bodyModel = BodiesE.SUV.getBodyModel();
+    private static String bodyType = BodiesE.SUV.getBodyType();
+    private static String bodyMaterial = BodiesE.SUV.getBodyMaterial();
+    private static int numberOfSeats = BodiesE.SUV.getNumberOfSeats();
+    private static String bodyColour;
+    private static int numberOfDoors = BodiesE.SUV.getNumberOfDoors();
     private static int suvBodyCounter;
 
     public SUVBody(String bodyColour) {
@@ -45,22 +48,20 @@ public class SUVBody extends Body {
         return numberOfDoors;
     }
 
-    public static int getSuvBodyCounter() {
+    public static void setCounter(int counter) {
+        suvBodyCounter = counter;
+    }
+
+    public static int getCounter() {
         return suvBodyCounter;
     }
 
     @Override
     public String toString() {
-        return "Body model: SUB/-7-5STL";
+        return bodyModel;
     }
 
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Body model:") + String.format("%15s", bodyModel));
-        System.out.println(String.format("%-17s", "Body type:") + String.format("%15s", bodyType));
-        System.out.println(String.format("%-17s", "Body material:") + String.format("%15s", bodyMaterial));
-        System.out.println(String.format("%-17s", "Number of seats:") + String.format("%15d", numberOfSeats));
-        System.out.println(String.format("%-17s", "Body colour:") + String.format("%15s", bodyColour));
-        System.out.println(String.format("%-17s", "Number of doors:") + String.format("%15d", numberOfDoors));
-        System.out.println();
+        setBodiesDescription(bodyModel, bodyType, bodyMaterial, bodyColour, numberOfSeats, numberOfDoors);
     }
 }

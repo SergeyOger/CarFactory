@@ -10,9 +10,10 @@ public abstract class Engine implements IGetDetailsDescription, Serializable {
 
     public abstract int getCilindersNumber();
 
-    public abstract String getEngineType();
-
     public abstract String getFuelType();
 
+    public abstract String getFuelMark();
+
     public abstract int getEnginePower();
+
 }

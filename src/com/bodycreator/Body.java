@@ -4,7 +4,7 @@ import com.interfaces.IGetDetailsDescription;
 
 import java.io.Serializable;
 
-public abstract class Body implements IGetDetailsDescription,Serializable {
+public abstract class Body implements IGetDetailsDescription, Serializable {
 
     public abstract String getBodyType();
 

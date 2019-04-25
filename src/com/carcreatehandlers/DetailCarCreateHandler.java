@@ -1,14 +1,13 @@
 package com.carcreatehandlers;
 
 import com.detailcarcreator.DetailCarCreator;
-import com.infomodule.InfoHandler;
-import com.infomodule.InfoModule;
 import com.interfaces.ICreateHandler;
-import com.mainhandler.MainHandler;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 
+import static com.infomodule.InfoHandler.*;
 import static com.mainhandler.MainHandler.runHandler;
 
 public class DetailCarCreateHandler implements ICreateHandler, Serializable {
@@ -23,12 +22,13 @@ public class DetailCarCreateHandler implements ICreateHandler, Serializable {
     private static String readBodyType;
     private static String transmissionType;
     private static String readTransmissionType;
-    private static int individualCarProjectCounter;
+    private static int individualCarProjectCounter; // counter index in oterCounters 2
     private String directionOfTheProgram;
     private String carColour;
 
 
     public DetailCarCreateHandler() {
+        individualCarProjectCounter = readCounterForInfoModule(5, 2);
         individualCarProjectCounter++;          //Add file for saving this counter and void for reading it from file
     }
 
@@ -36,74 +36,124 @@ public class DetailCarCreateHandler implements ICreateHandler, Serializable {
 
     DetailCarCreator detailCarCreator = new DetailCarCreator();
 
+    public static int getIndividualCarProjectCounter() {
+        return individualCarProjectCounter;
+    }
+
     public void engineTypeReader() {
-        System.out.printf("Select engine type :\n1.Low power engine (LPE)\n2.Medium puwer engine (MPE)\n" +
-                "3.High power engine (HPE)\n4.High power diesel engine (HPDE)\n");
+        getMenuItemSeparator();
+        setTextFormater("Select engine type :", "");
+        getTextSeparator();
+        setTextFormater(EnginesE.LPE.getName(), EnginesE.LPE.getShortName());
+        setTextFormater(EnginesE.MPE.getName(), EnginesE.MPE.getShortName());
+        setTextFormater(EnginesE.HPE.getName(), EnginesE.HPE.getShortName());
+        setTextFormater(EnginesE.HPDE.getName(), EnginesE.HPDE.getShortName());
+        getMenuItemSeparator();
+
         readEngineType = scanner.nextLine().toUpperCase().trim();
-        if (readEngineType.equals("LPE") || readEngineType.equals("MPE")
-                || readEngineType.equals("HPE") || readEngineType.equals("HPDE")) {
+
+        if (readEngineType.equals(EnginesE.LPE.getShortName())
+                || readEngineType.equals(EnginesE.MPE.getShortName())
+                    || readEngineType.equals(EnginesE.HPE.getShortName())
+                        || readEngineType.equals(EnginesE.HPDE.getShortName())) {
             engineType = readEngineType;
             detailCarCreator.changeEngine(engineType);
         } else {
-            System.out.println("Wrong input,please repeat the input");
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             engineTypeReader();
         }
     }
 
     public void transmissionTypeReader() {
-        System.out.printf("\nSelect transmission type:\n1.Automatic transmission (AT)\n" +
-                "2.Semi-avtomatic transmission(SAT)\n3.Heavy duty manual transmission (HDMT)\n" +
-                "4.Standart manual transmission (SMT)\n");
+        getMenuItemSeparator();
+        setTextFormater("Select transmission type :", "");
+        getTextSeparator();
+        setTextFormater(TransmissionsE.SMT.getName(), TransmissionsE.SMT.getShortName());
+        setTextFormater(TransmissionsE.AT.getName(), TransmissionsE.AT.getShortName());
+        setTextFormater(TransmissionsE.SAT.getName(), TransmissionsE.SAT.getShortName());
+        setTextFormater(TransmissionsE.HDMT.getName(), TransmissionsE.HDMT.getShortName());
+        getMenuItemSeparator();
+
         readTransmissionType = scanner.nextLine().toUpperCase().trim();
-        if (readTransmissionType.equals("AT") || readTransmissionType.equals("SAT") || readTransmissionType.equals("HDMT")
-                || readTransmissionType.equals("SMT")) {
+
+        if (readTransmissionType.equals(TransmissionsE.SMT.getShortName())
+                || readTransmissionType.equals(TransmissionsE.SAT.getShortName())
+                    || readTransmissionType.equals(TransmissionsE.AT.getShortName())
+                        || readTransmissionType.equals(TransmissionsE.HDMT.getShortName())) {
             transmissionType = readTransmissionType;
             detailCarCreator.changeTransmission(transmissionType);
         } else {
-            System.out.println("Wrong input,please repeat the input");
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             transmissionTypeReader();
         }
     }
 
     public void bodyTypeReader() {
-        System.out.printf("\nSelect body type:\n1.Coupe (C)\n2.Sedan  (S)\n3.SUV  (SUV)\n");
+        getMenuItemSeparator();
+        setTextFormater("Select body type :","");
+        getTextSeparator();
+        setTextFormater(BodiesE.S.getName(), BodiesE.S.getShortName());
+        setTextFormater(BodiesE.C.getName(), BodiesE.C.getShortName());
+        setTextFormater(BodiesE.SUV.getName(), BodiesE.SUV.getShortName());
+        getMenuItemSeparator();
         readBodyType = scanner.nextLine().toUpperCase().trim();
-        if (readBodyType.equals("C") || readBodyType.equals("S") || readBodyType.equals("SUV")) {
+        if (readBodyType.equals(BodiesE.S.getShortName())
+                || readBodyType.equals(BodiesE.C.getShortName())
+                    || readBodyType.equals(BodiesE.SUV.getShortName())) {
             bodyType = readBodyType;
             System.out.println("Insert car colour");
             carColour = scanner.nextLine().toUpperCase().trim();
-            detailCarCreator.changeBody(bodyType,carColour);
+            detailCarCreator.changeBody(bodyType, carColour);
         } else {
-            System.out.println("Wrong input,please repeat the input");
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             bodyTypeReader();
         }
 
     }
 
     public void suspensionTypeReader() {
-        System.out.printf("Select suspension type:\n1.Standart suspension (STDS)\n2.Comphort suspensio (CTS)\n" +
-                "3.Sport suspension (STS)\n4.Off-road suspension (ORS)\n");
+
+        getMenuItemSeparator();
+        setTextFormater("Select suspension type :","");
+        getTextSeparator();
+        setTextFormater(SuspensionsE.STDS.getName(),SuspensionsE.STDS.getShortName());
+        setTextFormater(SuspensionsE.CTS.getName(),SuspensionsE.CTS.getShortName());
+        setTextFormater(SuspensionsE.STS.getName(),SuspensionsE.STS.getShortName());
+        setTextFormater(SuspensionsE.ORS.getName(),SuspensionsE.ORS.getShortName());
+        getMenuItemSeparator();
+
         readSuspensionType = scanner.nextLine().toUpperCase().trim();
-        if (readSuspensionType.equals("STDS") || readSuspensionType.equals("CTS") || readSuspensionType.equals("STS")
-                || readSuspensionType.equals("ORS")) {
+
+        if (readSuspensionType.equals(SuspensionsE.STDS.getShortName())
+                || readSuspensionType.equals(SuspensionsE.CTS.getShortName())
+                    || readSuspensionType.equals(SuspensionsE.STS.getShortName())
+                        || readSuspensionType.equals(SuspensionsE.ORS.getShortName())) {
             suspensionType = readSuspensionType;
             detailCarCreator.changeSuspension(suspensionType);
         } else {
-            System.out.println("Wrong input,please repeat the input");
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             suspensionTypeReader();
         }
     }
 
     public void interiorTypeReader() {
-        System.out.printf("Select interior type:\n1.Standart interior (STDI)\n2.Sport interior (STI)\n" +
-                "3.Wear resistant interior (WRI)\n");
+        getMenuItemSeparator();
+        setTextFormater("Select interior type :","");
+        getTextSeparator();
+        setTextFormater(InteriorsE.STDI.getName(), InteriorsE.STDI.getShortName());
+        setTextFormater(InteriorsE.STI.getName(), InteriorsE.STI.getShortName());
+        setTextFormater(InteriorsE.WRI.getName(), InteriorsE.WRI.getShortName());
+        getMenuItemSeparator();
+
         readInteriorType = scanner.nextLine().toUpperCase().trim();
-        if (readInteriorType.equals("STDI") || readInteriorType.equals("STI") || readInteriorType.equals("WRI")) {
+
+        if (readInteriorType.equals(InteriorsE.STDI.getShortName())
+                || readInteriorType.equals(InteriorsE.STI.getShortName())
+                        || readInteriorType.equals(InteriorsE.WRI.getShortName())) {
             interiorType = readInteriorType;
             detailCarCreator.changeInterior(interiorType);
-
         } else {
-            System.out.println("Wrong input,please repeat the input");
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             interiorTypeReader();
         }
     }
@@ -125,8 +175,11 @@ public class DetailCarCreateHandler implements ICreateHandler, Serializable {
 
     @Override
     public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
-        System.out.printf("\nGet info about car (INFO)\nFor creating new car insert (NEW)" +
-                "\nFor save your car order and return to menu insert (SAVE)\n");
+        getMenuItemSeparator();
+        setTextFormater("Get info about car :", "(INFO)");
+        setTextFormater("For creating new car insert :","(NEW)");
+        setTextFormater("For save your order and return to menu insert :", "(SAVE)");
+        getMenuItemSeparator();
         directionOfTheProgram = scanner.nextLine().toUpperCase().trim();
         if (directionOfTheProgram.equals("INFO")) {
             getInfoAboutCreatedCar();
@@ -141,12 +194,15 @@ public class DetailCarCreateHandler implements ICreateHandler, Serializable {
 
     @Override
     public void saveCreatedCar() {
-        InfoHandler.writeCarCounter(detailCarCreator.getAllCreatedCarCounter(),InfoModule.CAR_COUNTER);
-        InfoHandler.writeCarCounter(detailCarCreator.getOrderCounter(),InfoModule.ORDER_COUNTER);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdEngines, InfoModule.ENGINES);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdTransmissions, InfoModule.TRANSMISSIONS);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdBodys, InfoModule.BODIES);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdSuspensions, InfoModule.SUSPENSIONS);
-        InfoHandler.saveCreationObjectToFile(detailCarCreator.createdInteriors, InfoModule.INTERIORS);
+
+        detailCarCreator.addCountersToList(2, individualCarProjectCounter);
+        saveCreationObjectToFile(detailCarCreator.counters, COUNTERS);
+        saveCreationObjectToFile(detailCarCreator.createdEngines, ENGINES);
+        saveCreationObjectToFile(detailCarCreator.createdTransmissions, TRANSMISSIONS);
+        saveCreationObjectToFile(detailCarCreator.createdBodys, BODIES);
+        saveCreationObjectToFile(detailCarCreator.createdSuspensions, SUSPENSIONS);
+        saveCreationObjectToFile(detailCarCreator.createdInteriors, INTERIORS);
+
+
     }
 }

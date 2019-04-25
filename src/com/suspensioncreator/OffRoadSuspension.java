@@ -1,9 +1,14 @@
 package com.suspensioncreator;
 
+import static com.infomodule.InfoHandler.SuspensionsE;
+import static com.infomodule.InfoHandler.setSuspensionsDescription;
+
 public class OffRoadSuspension extends Suspension {
-    private String comphortLevel = "Medium";
-    private int clearense = 350;
-    private int suspensionTreavel = 180;
+
+    private static String suspensionModel = SuspensionsE.ORS.getSuspensionModel();
+    private static String comphortLevel = SuspensionsE.ORS.getComphortLevel();
+    private static int clearense = SuspensionsE.ORS.getClearense();
+    private static int suspensionTreavel = SuspensionsE.ORS.getSuspensionTreavel();
     private static int offRoadSuspensionCounter;
 
     public OffRoadSuspension() {
@@ -25,21 +30,21 @@ public class OffRoadSuspension extends Suspension {
         return suspensionTreavel;
     }
 
-    public static int getOffRoadSuspensionCounter() {
-        return offRoadSuspensionCounter;
-    }
-
     @Override
     public String toString() {
-        return "Suspension model: ORS/-M350-180";
+        return suspensionModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Suspension model:") + String.format("%15s", "ORS/-M350-180"));
-        System.out.println(String.format("%-17s", "Comphort level:") + String.format("%15s", comphortLevel));
-        System.out.println(String.format("%-17s", "Suspension clearense:") + String.format("%11d", clearense));
-        System.out.println(String.format("%-17s", "Suspension treavel:") + String.format("%13d", suspensionTreavel));
-        System.out.println();
+        setSuspensionsDescription(suspensionModel, comphortLevel, clearense, suspensionTreavel);
+    }
+
+    public static void setCounter(int counter) {
+        offRoadSuspensionCounter = counter;
+    }
+
+    public static int getCounter() {
+        return offRoadSuspensionCounter;
     }
 }

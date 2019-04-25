@@ -1,12 +1,15 @@
 package com.enginecreator;
 
+import static com.infomodule.InfoHandler.*;
+
 public class MediumPowerEngine extends Engine {
 
-    private double engineVolume = 2.5;
-    private int cilindersNumber = 6;
-    private String engineType = "Petrol";
-    private String fuelType = "A-98";
-    private int enginePower = 350;
+    private static String engineModel = EnginesE.MPE.getEngineModel();
+    private double engineVolume = EnginesE.MPE.getEngineVolume();
+    private int cilindersNumber = EnginesE.MPE.getCilindersNumber();
+    private String fuelType = Fuel.PETROL.getFuelType();
+    private String fuelMark = Fuel.PETROL.getFuelMark();
+    private int enginePower = EnginesE.MPE.getEnginePower();
     private static int mediumPowerEngineCounter = 0;
 
     public MediumPowerEngine() {
@@ -24,8 +27,8 @@ public class MediumPowerEngine extends Engine {
     }
 
     @Override
-    public String getEngineType() {
-        return engineType;
+    public String getFuelMark() {
+        return fuelMark;
     }
 
     @Override
@@ -40,20 +43,19 @@ public class MediumPowerEngine extends Engine {
 
     @Override
     public String toString() {
-        return "Engine model: MP/-6-350-2.5";
-    }
-
-    public static int getMediumPowerEngineCounter() {
-        return mediumPowerEngineCounter;
+        return engineModel;
     }
 
     @Override
     public void getDetailDescription() {
-        System.out.println(String.format("%-17s", "Engine model:") + String.format("%15s", "MP/-6-350-2.5"));
-        System.out.println(String.format("%-17s", "Engine volume, L:") + String.format("%15.2f", engineVolume));
-        System.out.println(String.format("%-17s", "Engine type:") + String.format("%15s", engineType));
-        System.out.println(String.format("%-17s", "Fuel type:") + String.format("%15s", fuelType));
-        System.out.println(String.format("%-17s", "Engine power, HP:") + String.format("%15d", enginePower));
-        System.out.println();
+        setEngineDescription(engineModel, engineVolume, cilindersNumber, fuelType, fuelMark, enginePower);
+    }
+
+    public static void setCounter(int counter) {
+        mediumPowerEngineCounter = counter;
+    }
+
+    public static int getCounter() {
+        return mediumPowerEngineCounter;
     }
 }
