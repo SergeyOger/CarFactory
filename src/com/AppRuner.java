@@ -1,9 +1,8 @@
 package com;
 
-import com.mainhandler.MainHandler;
+import com.car_showroom.MainHandler;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class AppRuner {
 
