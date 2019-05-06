@@ -1,6 +1,6 @@
 package com.car_showroom;
 
-public final class MessageFormating {
+public final class MessageFormatting {
 
     public enum InfoMassage {
         WRONG_INPUT("Wrong input,please repeat the input");

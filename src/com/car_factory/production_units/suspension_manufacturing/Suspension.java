@@ -14,19 +14,13 @@ public abstract class Suspension implements IUnitSpecification, Serializable {
     public static void setSuspensionsDescription(int serialNumber, String suspensionModel, String comphortLevel,
                                                  int clearense, int suspensionTreavel) {
         getSeparator();
-        getSerialNumberFormatter(SUSOENSION_SERIAL_NUMBER.getName(),serialNumber);
+        getSerialNumberFormatter(SUSPENSION_SERIAL_NUMBER.getName(),serialNumber);
         getSpecificationFormatter(SUSPENSION_MODEL.getName(), suspensionModel);
         getSpecificationFormatter(COMFORT_LEVEL.getName(), comphortLevel);
         getSpecificationFormatter(CLEARANCE.getName(), clearense);
         getSpecificationFormatter(SUSPENSION_TRAVEL.getName(), suspensionTreavel);
         getSeparator();
     }
-
-    public abstract String getComfortLevel();
-
-    public abstract int getClearance();
-
-    public abstract int getSuspensionTravel();
 
 }
 

@@ -42,22 +42,16 @@ public abstract class StatisticsArchive {
     }
 
     public static void updateStatisticsArchive(String key, Integer value) throws IOException {
-
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(STATISTICS_ARCHIVE))) {
-
             HashMap archive = (HashMap) objectInputStream.readObject();
-
             if (archive.containsKey(key)) {
                 archive.replace(key, value);
-                System.out.println("Key replaces");
             } else {
                 archive.put(key, value);
-                System.out.println("Key added");
             }
             closeArchive(archive);
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
-
         } catch (FileNotFoundException e) {
             File dir = new File("resources");
             dir.mkdir();
@@ -68,8 +62,6 @@ public abstract class StatisticsArchive {
         } catch (EOFException e) {
             closeArchive(new HashMap());
             updateStatisticsArchive(key, value);
-            System.out.println("End of file");
-
         } catch (IOException e) {
             e.printStackTrace();
         }

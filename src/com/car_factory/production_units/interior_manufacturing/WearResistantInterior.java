@@ -13,21 +13,6 @@ public class WearResistantInterior extends Interior {
     private int wearResistantInteriorCounter;
 
     @Override
-    public String getSeatsMaterial() {
-        return seatsMaterial;
-    }
-
-    @Override
-    public String getUpholsteriMaterial() {
-        return upholsteryMaterial;
-    }
-
-    @Override
-    public String getDashboardtype() {
-        return dashboardType;
-    }
-
-    @Override
     public String toString() {
         return interiorModel;
     }

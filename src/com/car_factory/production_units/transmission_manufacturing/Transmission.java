@@ -14,19 +14,11 @@ public abstract class Transmission implements IUnitSpecification, Serializable {
     public static void setTransmissionDescription(int serialNumber, String transmissionModel, String transmissionType,
                                                   int numberOfGears, String typeOfDrive) {
         getSeparator();
-        getSerialNumberFormatter(TRANSMISSION_SERIAL_NUMBER.getValue(),serialNumber);
-        getSpecificationFormatter(TRANSMISSION_MODEL.getValue(), transmissionModel);
-        getSpecificationFormatter(TRANSMISSION_TYPE.getValue(), transmissionType);
-        getSpecificationFormatter(NUMBER_OF_GEARS.getValue(), numberOfGears);
-        getSpecificationFormatter(TYPE_OF_DRIVE.getValue(), typeOfDrive);
+        getSerialNumberFormatter(TRANSMISSION_SERIAL_NUMBER.getName(),serialNumber);
+        getSpecificationFormatter(TRANSMISSION_MODEL.getName(), transmissionModel);
+        getSpecificationFormatter(TRANSMISSION_TYPE.getName(), transmissionType);
+        getSpecificationFormatter(NUMBER_OF_GEARS.getName(), numberOfGears);
+        getSpecificationFormatter(TYPE_OF_DRIVE.getName(), typeOfDrive);
         getSeparator();
-
     }
-
-    public abstract String getTransmissionType();
-
-    public abstract int getNumberOfGears();
-
-    public abstract String getTypeOfDrive();
-
 }

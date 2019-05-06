@@ -14,24 +14,13 @@ public abstract class Engine implements IUnitSpecification, Serializable {
     public static void setEngineDescription(int serialNumber, String engineModel, double engineVolume, int cilindersNumber,
                                             String fuelType, String fuelMark, int enginePower) {
         getSeparator();
-        getSerialNumberFormatter(ENGINE_SERIAL_NUMBER.getValue(),serialNumber);
-        getSpecificationFormatter(ENGINE_MODEL.getValue(), engineModel);
-        getSpecificationFormatter(ENGINE_VOLUME.getValue(), engineVolume);
-        getSpecificationFormatter(CILINDERS_NUMBER.getValue(), cilindersNumber);
-        getSpecificationFormatter(FUEL_TYPE.getValue(), fuelType);
-        getSpecificationFormatter(FUEL_MARK.getValue(), fuelMark);
-        getSpecificationFormatter(ENGINE_POWER.getValue(), enginePower);
+        getSerialNumberFormatter(ENGINE_SERIAL_NUMBER.getName(),serialNumber);
+        getSpecificationFormatter(ENGINE_MODEL.getName(), engineModel);
+        getSpecificationFormatter(ENGINE_VOLUME.getName(), engineVolume);
+        getSpecificationFormatter(CYLINDERS_NUMBER.getName(), cilindersNumber);
+        getSpecificationFormatter(FUEL_TYPE.getName(), fuelType);
+        getSpecificationFormatter(FUEL_MARK.getName(), fuelMark);
+        getSpecificationFormatter(ENGINE_POWER.getName(), enginePower);
         getSeparator();
     }
-
-    public abstract double getEngineVolume();
-
-    public abstract int getCilindersNumber();
-
-    public abstract String getFuelType();
-
-    public abstract String getFuelMark();
-
-    public abstract int getEnginePower();
-
 }

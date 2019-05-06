@@ -25,16 +25,6 @@ public abstract class Body implements IUnitSpecification, Serializable {
 
     }
 
-    public abstract String getBodyType();
-
-    public abstract String getBodyMaterial();
-
-    public abstract int getNumberOfSeats();
-
     public abstract void setBodyColour(BodyColour bodyColour);
-
-    public abstract BodyColour getBodyColour();
-
-    public abstract int getNumberOfDoors();
 
 }

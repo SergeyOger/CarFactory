@@ -1,4 +1,4 @@
-package com.car_showroom;
+package com.car_factory.factory_office.order_department;
 
 import com.car_factory.car_assembly_line.unique_car.UniqueCar;
 import com.car_factory.production_units.body_manufacturing.BodyColour;
@@ -25,7 +25,7 @@ import static com.car_factory.production_units.suspension_manufacturing.Suspensi
 import static com.car_factory.production_units.transmission_manufacturing.TransmissionDescription.TRANSMISSION_MODEL;
 import static com.car_factory.production_units.transmission_manufacturing.TransmissionSpecification.*;
 import static com.car_showroom.MainHandler.runHandler;
-import static com.car_showroom.MessageFormating.InfoMassage;
+import static com.car_showroom.MessageFormatting.InfoMassage;
 import static com.car_showroom.TextFormatter.*;
 
 
@@ -189,17 +189,17 @@ public class IndividualOrder implements Serializable {
         getMenuItemSeparator();
         getInfoFormatter(BODY_MODEL.getName(), bodyType.getName());
         getInfoFormatter(BODY_COLOUR.getName(), bodyColour.getColour());
-        getInfoFormatter(ENGINE_MODEL.getValue(), engineType.getName());
-        getInfoFormatter(TRANSMISSION_MODEL.getValue(), transmissionType.getName());
-        getInfoFormatter(SUSPENSION_MODEL.getName(), suspensionType.getShortName());
+        getInfoFormatter(ENGINE_MODEL.getName(), engineType.getName());
+        getInfoFormatter(TRANSMISSION_MODEL.getName(), transmissionType.getName());
+        getInfoFormatter(SUSPENSION_MODEL.getName(), suspensionType.getName());
         getInfoFormatter(INTERIOR_MODEL.getName(), interiorType.getName());
         getMenuItemSeparator();
     }
 
     public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
         getMenuItemSeparator();
-        setMenuTextFormatter("Get info about uniqueCar :", "(INFO)");
-        setMenuTextFormatter("For creating new uniqueCar insert :", "(NEW)");
+        setMenuTextFormatter("Get info about car :", "(INFO)");
+        setMenuTextFormatter("For creating new car insert :", "(NEW)");
         setMenuTextFormatter("For return to menu insert :", "(MENU)");
         getMenuItemSeparator();
         directionOfTheProgram = scanner.nextLine().toUpperCase().trim();

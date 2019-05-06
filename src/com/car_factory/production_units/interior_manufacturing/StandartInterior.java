@@ -13,21 +13,6 @@ public class StandartInterior extends Interior {
     private int standardInteriorCounter;
 
     @Override
-    public String getSeatsMaterial() {
-        return seatsMaterial;
-    }
-
-    @Override
-    public String getUpholsteriMaterial() {
-        return upholsteryMaterial;
-    }
-
-    @Override
-    public String getDashboardtype() {
-        return dashboardType;
-    }
-
-    @Override
     public String toString() {
         return interiorModel;
     }

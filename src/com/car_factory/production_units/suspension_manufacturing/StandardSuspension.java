@@ -12,21 +12,6 @@ public class StandardSuspension extends Suspension {
     private int standardSuspensionCounter;
 
     @Override
-    public String getComfortLevel() {
-        return comfortLevel;
-    }
-
-    @Override
-    public int getClearance() {
-        return clearance;
-    }
-
-    @Override
-    public int getSuspensionTravel() {
-        return suspensionTravel;
-    }
-
-    @Override
     public String toString() {
         return suspensionModel;
     }

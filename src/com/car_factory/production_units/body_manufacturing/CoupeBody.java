@@ -22,35 +22,9 @@ public class CoupeBody extends Body {
         this.bodyColour = bodyColour;
     }
 
-
-    @Override
-    public String getBodyType() {
-        return bodyType;
-    }
-
-    @Override
-    public String getBodyMaterial() {
-        return bodyMaterial;
-    }
-
-    @Override
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
     @Override
     public void setBodyColour(BodyColour bodyColour) {
         this.bodyColour = bodyColour;
-    }
-
-    @Override
-    public BodyColour getBodyColour() {
-        return bodyColour;
-    }
-
-    @Override
-    public int getNumberOfDoors() {
-        return numberOfDoors;
     }
 
     public void setCounter(int counter) {

@@ -22,10 +22,4 @@ public abstract class Interior implements IUnitSpecification, Serializable {
         getSeparator();
     }
 
-    public abstract String getSeatsMaterial();
-
-    public abstract String getUpholsteriMaterial();
-
-    public abstract String getDashboardtype();
-
 }

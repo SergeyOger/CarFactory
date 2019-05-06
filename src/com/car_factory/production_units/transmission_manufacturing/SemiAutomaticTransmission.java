@@ -8,21 +8,6 @@ public class SemiAutomaticTransmission extends Transmission {
     private int semiAutomaticTransmissionCounter;
 
     @Override
-    public String getTransmissionType() {
-        return transmissionType;
-    }
-
-    @Override
-    public int getNumberOfGears() {
-        return numberOfGears;
-    }
-
-    @Override
-    public String getTypeOfDrive() {
-        return typeOfDrive;
-    }
-
-    @Override
     public String toString() {
         return transmissionModel;
     }

@@ -19,12 +19,6 @@ public abstract class StandardCarsStorage {
         return t;
     }
 
-    public static <T extends ICarAssemlyLine> void sendCarToParkingLot(String key, LinkedHashSet<T> car) throws IOException {
-        LinkedList<T> department = openParkingDepartment(key);
-        department.addLast((T) car);
-        updateParkingDepartment(key, department);
-    }
-
     public static <T extends ICarAssemlyLine> void updateParkingDepartment(String key, LinkedList<T> department) throws IOException {
         openParking();
         if (carParking.containsKey(key)) {
@@ -46,6 +40,7 @@ public abstract class StandardCarsStorage {
             carParking = (HashMap) objectInputStream.readObject();
         } catch (FileNotFoundException e) {
             carParking = new HashMap();
+            System.out.println("Writing error.File not found\nCreated new file");
             File dir = new File("resources");
             dir.mkdir();
             File file1 = new File(dir, "assembled_standard_cars.bin");
@@ -61,11 +56,11 @@ public abstract class StandardCarsStorage {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(CAR_PARKING))) {
             objectOutputStream.writeObject(carParking);
         } catch (FileNotFoundException e) {
+            System.out.println("Writing error.File not found\nCreated new file");
             File dir = new File("resources");
             dir.mkdir();
             File file1 = new File(dir, "assembled_standard_cars.bin");
             file1.createNewFile();
-            System.out.println("Writing error.File not found");
         } catch (IOException e) {
             System.out.println("Error in writing process ");
         }

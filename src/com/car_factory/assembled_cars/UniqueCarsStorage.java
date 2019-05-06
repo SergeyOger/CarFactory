@@ -25,13 +25,18 @@ public abstract class UniqueCarsStorage {
 
     public static <T extends UniqueCar> void saveUniqueCar(String orderNumber, T t) throws IOException {
         openUniqueCarsStock();
-        if (uniqueCars.containsKey(orderNumber)) {
-            System.out.println("Order name is not unique, enter another name");
-        } else {
-            uniqueCars.put(orderNumber, t);
-            System.out.println("Oder saved");
-        }
+        uniqueCars.put(orderNumber, t);
+        System.out.println("Oder saved");
         closeUniqueCarsStock();
+    }
+
+    public static Boolean checkTheOrderNameUniqueness(String key) throws IOException {
+        openUniqueCarsStock();
+        if (uniqueCars.containsKey(key)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private static void openUniqueCarsStock() throws IOException {

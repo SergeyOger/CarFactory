@@ -2,7 +2,7 @@ package com.car_factory.production_units.suspension_manufacturing;
 
 public enum SuspensionDescription {
 
-    SUSOENSION_SERIAL_NUMBER("Suspension s/n"),
+    SUSPENSION_SERIAL_NUMBER("Suspension s/n"),
     SUSPENSION_MODEL("Suspension model"),
     COMFORT_LEVEL("Comfort level"),
     CLEARANCE("Clearance"),

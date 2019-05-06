@@ -5,7 +5,7 @@ public enum EngineDescription {
     ENGINE_SERIAL_NUMBER("Engine s/n"),
     ENGINE_MODEL("Engine model"),
     ENGINE_VOLUME("Engine volume, L"),
-    CILINDERS_NUMBER("Cilinders number"),
+    CYLINDERS_NUMBER("Cylinders number"),
     ENGINE_POWER("Engine power"),
     FUEL_TYPE("Fuel type"),
     FUEL_MARK("Fuel mark");
@@ -16,7 +16,7 @@ public enum EngineDescription {
         this.value = value;
     }
 
-    public String getValue() {
+    public String getName() {
         return value;
     }
 
