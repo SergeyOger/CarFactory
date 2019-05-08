@@ -8,7 +8,7 @@ public enum TransmissionSpecification {
             "Automatic", 5, "2 wheel drive"),
     SAT("SAT","Semi - automatic transmission", "SAT", "SAT/-6-4WDTR",
             "Semi - Automatic", 6, "2 wheel drive"),
-    HDMT("HDMT","Heavy - duty manua transmission", "HDMT", "HDT/-6-4WDTR",
+    HDMT("HDMT","Heavy - duty manual transmission", "HDMT", "HDT/-6-4WDTR",
             "Manual", 6, "4 wheel drive");
 
     private String archiveKey;

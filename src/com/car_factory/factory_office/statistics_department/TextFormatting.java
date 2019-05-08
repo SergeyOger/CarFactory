@@ -11,12 +11,21 @@ public abstract class TextFormatting {
 
     public static void configureTableColumns(String firstColumnText, int firstColumnValue,
                                              String secondColumnText, int secondColumnValue) {
-        System.out.println("|" + String.format("%-23s",firstColumnText) + String.format("%24d",firstColumnValue)
-                + " | " + String.format("%-24s",secondColumnText) + String.format("%24d",secondColumnValue) + "|" );
+        System.out.println("|" + String.format("%-38s",firstColumnText) + String.format("%10d",firstColumnValue)
+                + " | " + String.format("%-38s",secondColumnText) + String.format("%10d",secondColumnValue) + "|" );
     }
     public static void configureTableColumns(String firstColumnText, int firstColumnValue) {
-        System.out.println("|" + String.format("%-23s",firstColumnText) + String.format("%24d",firstColumnValue)
+        System.out.println("|" + String.format("%-38s",firstColumnText) + String.format("%10d",firstColumnValue)
                 + " | "+ String.format("%48s","") + "|" );
+    }
+
+    public static void configureTableColumns(String firstColumnText, String firstColumnValue) {
+        System.out.println("|" + String.format("%-38s",firstColumnText) + String.format("%10s",firstColumnValue)
+                + " | " );
+    }
+
+    public static void configureTableColumnsTitle(String firstColumnText, String secondColumnText) {
+        System.out.println("|" + String.format("%-48s",firstColumnText) + " | " + String.format("%-48s",secondColumnText) + "|" );
     }
 
 }

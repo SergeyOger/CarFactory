@@ -18,7 +18,7 @@ public abstract class SuspensionAvailabilityController {
     public static void standardSuspensionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 63;
         int counter;
         LinkedList<StandardSuspension> standardSuspensions = openUnitDepartment(STDS.getShortName());
 
@@ -42,7 +42,7 @@ public abstract class SuspensionAvailabilityController {
     public static void comfortSuspensionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 30;
+        int partySize = 53;
         int counter;
         LinkedList<ComfortSuspension> comfortSuspensions = openUnitDepartment(CTS.getShortName());
 
@@ -66,7 +66,7 @@ public abstract class SuspensionAvailabilityController {
     public static void sportSuspensionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 27;
         int counter;
         LinkedList<SportSuspension> sportSuspensions = openUnitDepartment(STS.getShortName());
 
@@ -90,7 +90,7 @@ public abstract class SuspensionAvailabilityController {
     public static void offRoadSuspensionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 48;
         int counter;
         LinkedList<OffRoadSuspension> offRoadSuspensions = openUnitDepartment(ORS.getShortName());
 

@@ -177,7 +177,7 @@ public class UniqueCar implements ICarAssemlyLine, Serializable {
     @Override
     public <T extends IUnitSpecification> void getCarSpecification() {
         System.out.println(orderNameTitle + orderName);
-        System.out.println(orderNumberTitle + uniqueCarCounter);
+        System.out.println(orderNumberTitle + String.format("%06d",uniqueCarCounter));
         for (Object o : uniqueCar) {
             ((T) o).getSpecification();
         }

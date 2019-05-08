@@ -40,7 +40,6 @@ public abstract class StandardCarsStorage {
             carParking = (HashMap) objectInputStream.readObject();
         } catch (FileNotFoundException e) {
             carParking = new HashMap();
-            System.out.println("Writing error.File not found\nCreated new file");
             File dir = new File("resources");
             dir.mkdir();
             File file1 = new File(dir, "assembled_standard_cars.bin");
@@ -56,7 +55,6 @@ public abstract class StandardCarsStorage {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(CAR_PARKING))) {
             objectOutputStream.writeObject(carParking);
         } catch (FileNotFoundException e) {
-            System.out.println("Writing error.File not found\nCreated new file");
             File dir = new File("resources");
             dir.mkdir();
             File file1 = new File(dir, "assembled_standard_cars.bin");

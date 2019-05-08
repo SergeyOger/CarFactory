@@ -7,12 +7,16 @@ import com.car_factory.production_units.engine_manufacturing.EngineSpecification
 import com.car_factory.production_units.interior_manufacturing.InteriorSpecification;
 import com.car_factory.production_units.suspension_manufacturing.SuspensionSpecification;
 import com.car_factory.production_units.transmission_manufacturing.TransmissionSpecification;
+import com.car_showroom.InfoMassage;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
 
 import static com.car_factory.assembled_cars.UniqueCarsStorage.saveUniqueCar;
+import static com.car_factory.factory_office.car_shipment_department.CarShipment.shipUniqueCar;
+import static com.car_factory.factory_office.statistics_department.StatisticsArchive.getArchiveData;
+import static com.car_factory.factory_office.statistics_department.StatisticsArchive.updateStatisticsArchive;
 import static com.car_factory.production_units.body_manufacturing.BodyDescription.BODY_COLOUR;
 import static com.car_factory.production_units.body_manufacturing.BodyDescription.BODY_MODEL;
 import static com.car_factory.production_units.body_manufacturing.BodySpecification.*;
@@ -24,13 +28,15 @@ import static com.car_factory.production_units.suspension_manufacturing.Suspensi
 import static com.car_factory.production_units.suspension_manufacturing.SuspensionSpecification.*;
 import static com.car_factory.production_units.transmission_manufacturing.TransmissionDescription.TRANSMISSION_MODEL;
 import static com.car_factory.production_units.transmission_manufacturing.TransmissionSpecification.*;
+import static com.car_showroom.MainHandler.orderUniqueCar;
 import static com.car_showroom.MainHandler.runHandler;
-import static com.car_showroom.MessageFormatting.InfoMassage;
 import static com.car_showroom.TextFormatter.*;
 
 
 public class IndividualOrder implements Serializable {
 
+    public static final String UNIQUE_CAR_KEY = "UK";
+    public static final String SOLD_UNIQUE_CAR_KEY = "UKS";
     private EngineSpecification engineType;
     private static String readEngineType;
     private SuspensionSpecification suspensionType;
@@ -47,8 +53,14 @@ public class IndividualOrder implements Serializable {
     private String directionOfTheProgram;
     private String orderName;
 
-    public IndividualOrder(String orderName) {
+    public IndividualOrder(String orderName) throws IOException {
+        if (getArchiveData("IPC") != null) {
+            individualCarProjectCounter = getArchiveData("IPC")[0];
+        } else {
+            individualCarProjectCounter = 0;
+        }
         individualCarProjectCounter++;
+        updateStatisticsArchive("IPC", individualCarProjectCounter);
         this.orderName = orderName;
     }
 
@@ -64,12 +76,12 @@ public class IndividualOrder implements Serializable {
         setMenuTextFormatter(HPDE.getName(), HPDE.getShortName());
         getMenuItemSeparator();
         readEngineType = scanner.nextLine().toUpperCase().trim();
-            try {
-                engineType = EngineSpecification.valueOf(readEngineType);
-            } catch (IllegalArgumentException e) {
-                System.out.println(InfoMassage.WRONG_INPUT.getMassage());
-                engineTypeSelection();
-            }
+        try {
+            engineType = EngineSpecification.valueOf(readEngineType);
+        } catch (IllegalArgumentException e) {
+            System.out.println(InfoMassage.WRONG_INPUT.getMassage());
+            engineTypeSelection();
+        }
 
     }
 
@@ -93,35 +105,39 @@ public class IndividualOrder implements Serializable {
 
     private void bodyTypeSelection() {
         getMenuItemSeparator();
-        setMenuTextFormatter("Select bodyColour type :", "");
+        setMenuTextFormatter("Select body  type :", "");
         getTextSeparator();
         setMenuTextFormatter(S.getName(), S.getShortName());
         setMenuTextFormatter(C.getName(), C.getShortName());
         setMenuTextFormatter(SUV.getName(), SUV.getShortName());
+        setMenuTextFormatter(SW.getName(), SW.getShortName());
         getMenuItemSeparator();
         readBodyType = scanner.nextLine().toUpperCase().trim();
         try {
             bodyType = BodySpecification.valueOf(readBodyType);
             bodyColourSelection();
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             bodyTypeSelection();
         }
     }
 
     private void bodyColourSelection() {
+        getMenuItemSeparator();
         setMenuTextFormatter("Change car colour", "");
-        setMenuTextFormatter(BodyColour.BLACK.getColour(), "");
-        setMenuTextFormatter(BodyColour.RED.getColour(), "");
-        setMenuTextFormatter(BodyColour.ORANGE.getColour(), "");
-        setMenuTextFormatter(BodyColour.SILVER.getColour(), "");
-        setMenuTextFormatter(BodyColour.BLUE.getColour(), "");
-        setMenuTextFormatter(BodyColour.GREEN.getColour(), "");
-        setMenuTextFormatter(BodyColour.WHITE.getColour(), "");
+        getTextSeparator();
+        setMenuTextFormatter(BodyColour.BLACK.getColour(), BodyColour.BLACK.getColour());
+        setMenuTextFormatter(BodyColour.RED.getColour(), BodyColour.RED.getColour());
+        setMenuTextFormatter(BodyColour.ORANGE.getColour(), BodyColour.ORANGE.getColour());
+        setMenuTextFormatter(BodyColour.SILVER.getColour(), BodyColour.SILVER.getColour());
+        setMenuTextFormatter(BodyColour.BLUE.getColour(), BodyColour.BLUE.getColour());
+        setMenuTextFormatter(BodyColour.GREEN.getColour(), BodyColour.GREEN.getColour());
+        setMenuTextFormatter(BodyColour.WHITE.getColour(), BodyColour.WHITE.getColour());
+        getMenuItemSeparator();
         readCarColour = scanner.nextLine().toUpperCase().trim();
         try {
             bodyColour = BodyColour.valueOf(readCarColour);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             bodyColourSelection();
         }
@@ -139,7 +155,7 @@ public class IndividualOrder implements Serializable {
         readSuspensionType = scanner.nextLine().toUpperCase().trim();
         try {
             suspensionType = SuspensionSpecification.valueOf(readSuspensionType);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             suspensionTypeSelection();
         }
@@ -156,7 +172,7 @@ public class IndividualOrder implements Serializable {
         readInteriorType = scanner.nextLine().toUpperCase().trim();
         try {
             interiorType = InteriorSpecification.valueOf(readInteriorType);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(InfoMassage.WRONG_INPUT.getMassage());
             interiorTypeSelection();
         }
@@ -183,6 +199,7 @@ public class IndividualOrder implements Serializable {
         uniqueCar.setInteriorType(interiorType);
         uniqueCar.assembleCar();
         saveUniqueCar(orderName, uniqueCar);
+        updateStatisticsArchive(UNIQUE_CAR_KEY, individualCarProjectCounter);
     }
 
     public void getInfoAboutCreatedCar() {
@@ -199,17 +216,30 @@ public class IndividualOrder implements Serializable {
     public void changeTheDirectionOfTheProgram() throws IOException, ClassNotFoundException {
         getMenuItemSeparator();
         setMenuTextFormatter("Get info about car :", "(INFO)");
+        setMenuTextFormatter("To receive an order:", "(REC)");
         setMenuTextFormatter("For creating new car insert :", "(NEW)");
         setMenuTextFormatter("For return to menu insert :", "(MENU)");
         getMenuItemSeparator();
         directionOfTheProgram = scanner.nextLine().toUpperCase().trim();
-        if (directionOfTheProgram.equals("INFO")) {
-            getInfoAboutCreatedCar();
-            changeTheDirectionOfTheProgram();
-        } else if (directionOfTheProgram.equals("NEW")) {
-            createOrder();
-        } else if (directionOfTheProgram.equals("MENU")) {
-            runHandler();
+
+        switch (directionOfTheProgram) {
+            case "INFO":
+                getInfoAboutCreatedCar();
+                changeTheDirectionOfTheProgram();
+                break;
+            case "REC":
+                shipUniqueCar(orderName).getCarSpecification();
+                runHandler();
+                break;
+            case "NEW":
+                orderUniqueCar();
+                break;
+            case "MENU":
+                runHandler();
+                break;
+            default:
+                System.out.println(InfoMassage.WRONG_INPUT.getMassage());
+                runHandler();
         }
     }
 }

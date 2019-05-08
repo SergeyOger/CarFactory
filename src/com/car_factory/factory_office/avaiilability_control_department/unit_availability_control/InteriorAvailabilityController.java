@@ -17,7 +17,7 @@ public abstract class InteriorAvailabilityController {
     public static void standardInteriorAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 70;
         int counter;
         LinkedList<StandartInterior> standardInteriors = openUnitDepartment(STDI.getShortName());
 
@@ -41,7 +41,7 @@ public abstract class InteriorAvailabilityController {
     public static void sportInteriorAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 30;
+        int partySize = 23;
         int counter;
         LinkedList<SportInterior> sportInteriors = openUnitDepartment(STI.getShortName());
 
@@ -65,7 +65,7 @@ public abstract class InteriorAvailabilityController {
     public static void wearResistantInteriorAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 43;
         int counter;
         LinkedList<WearResistantInterior> wearResistantInteriors = openUnitDepartment(WRI.getShortName());
 

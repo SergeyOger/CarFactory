@@ -1,6 +1,7 @@
 package com.car_factory.production_units.suspension_manufacturing;
 
 public enum SuspensionSpecification {
+
     STDS("STDS","Standard suspension", "STDS", "STS/-M200-80",
             "Medium",200, 80),
     CTS("CTS","Comfort suspension", "CTS", "CS/-H250-100", "High",

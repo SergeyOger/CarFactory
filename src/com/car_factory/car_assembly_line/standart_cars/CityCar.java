@@ -29,7 +29,7 @@ public class CityCar implements ICarAssemlyLine, Serializable {
 
     @Override
     public void setCounter(int counter) {
-        this.cityCarCounter = counter;
+        cityCarCounter = counter;
     }
 
     @Override

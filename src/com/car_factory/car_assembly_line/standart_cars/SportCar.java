@@ -29,7 +29,7 @@ public class SportCar implements ICarAssemlyLine, Serializable {
 
     @Override
     public void setCounter(int counter) {
-        this.sportCarCounter = counter;
+        sportCarCounter = counter;
     }
 
     @Override

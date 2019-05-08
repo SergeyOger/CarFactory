@@ -29,7 +29,6 @@ public abstract class MainStock {
             stock = (HashMap<String, LinkedList>) objectInputStream.readObject();
             return stock;
         } catch (FileNotFoundException e) {
-            System.out.println("Archive file created");
             stock = new HashMap<>();
             File dir = new File( "resources");
             dir.mkdir();
@@ -41,7 +40,6 @@ public abstract class MainStock {
             stock = new HashMap<>();
             return stock;
         } catch (IOException e) {
-            System.out.println("Warehouse opened with creak");
             stock = new HashMap<>();
             return stock;
         }

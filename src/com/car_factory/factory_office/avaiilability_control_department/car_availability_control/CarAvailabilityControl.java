@@ -3,6 +3,7 @@ package com.car_factory.factory_office.avaiilability_control_department.car_avai
 import com.car_factory.car_assembly_line.standart_cars.CityCar;
 import com.car_factory.car_assembly_line.standart_cars.SUV;
 import com.car_factory.car_assembly_line.standart_cars.SportCar;
+import com.car_factory.car_assembly_line.standart_cars.WagonCar;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ public abstract class CarAvailabilityControl {
     public static void checkCityCarAvailability() throws IOException {
 
         int minimumAmount = 4;
-        int partySize = 30;
+        int partySize = 60;
         int counter;
         LinkedList<CityCar> carParkingDepartment = openParkingDepartment(CITY_CAR.getKey());
 
@@ -67,7 +68,7 @@ public abstract class CarAvailabilityControl {
     public static void checkSUVCarAvailability() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 25;
+        int partySize = 40;
         int counter;
         LinkedList<SUV> carParkingDepartment = openParkingDepartment(SUV_CAR.getKey());
 
@@ -86,6 +87,31 @@ public abstract class CarAvailabilityControl {
             }
             updateStatisticsArchive(SUV_CAR.getKey(), carParkingDepartment.getLast().getCarCounter());
             updateParkingDepartment(SUV_CAR.getKey(), carParkingDepartment);
+        }
+    }
+
+    public static void checkWagonCarAvailability() throws IOException {
+
+        int minimumAmount = 3;
+        int partySize = 50;
+        int counter;
+        LinkedList<WagonCar> carParkingDepartment = openParkingDepartment(WAGON_CAR.getKey());
+
+        if (carParkingDepartment.size() < minimumAmount) {
+            if (carParkingDepartment.isEmpty()) {
+                counter = 0;
+            } else {
+                counter = carParkingDepartment.getLast().getCarCounter();
+            }
+            for (int i = 0; i < partySize; i++) {
+                counter++;
+                WagonCar universalCar = new WagonCar();
+                universalCar.assembleCar();
+                universalCar.setCounter(counter);
+                carParkingDepartment.addLast(universalCar);
+            }
+            updateStatisticsArchive(WAGON_CAR.getKey(), carParkingDepartment.getLast().getCarCounter());
+            updateParkingDepartment(WAGON_CAR.getKey(), carParkingDepartment);
         }
     }
 }

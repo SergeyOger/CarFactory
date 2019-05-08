@@ -7,7 +7,10 @@ public enum BodySpecification {
     C("COUPE_BODY","Coupe body", "C", "CUB/-2-2AL", "Coupe",
             "Aluminium", 2, 2),
     SUV("SUV_BODY","SUV body", "SUV", "SUVB/-7-5STL", "SUV",
-            "Steel", 7, 4);
+            "Steel", 7, 4),
+    SW("WagonCar","Station wagon","SW","SW/-4-4STL","Wagon",
+            "Steel",5,4);
+
     private String archiveKey;
     private String name;
     private String shortName;

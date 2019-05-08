@@ -44,6 +44,10 @@ public abstract class UnitOrderingHandler {
                 suvBodyAvailabilityControl();
                 t = getUnitFromStock(SUV.getShortName(), t);
                 break;
+            case SW:
+                stationWagonBodyAvailabilityControl();
+                t = getUnitFromStock(SW.getShortName(), t);
+                break;
         }
         t.setBodyColour(bodyColour);
         return t;

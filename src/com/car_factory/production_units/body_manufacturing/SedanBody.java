@@ -1,7 +1,5 @@
 package com.car_factory.production_units.body_manufacturing;
 
-import java.io.Serializable;
-
 import static com.car_factory.production_units.body_manufacturing.BodySpecification.S;
 
 public class SedanBody extends Body {
@@ -41,6 +39,6 @@ public class SedanBody extends Body {
     }
 
     public void getSpecification() {
-        setBodiesDescription(sedanBodyCounter,bodyModel, bodyType, bodyMaterial, bodyColour, numberOfSeats, numberOfDoors);
+        setBodiesDescription(sedanBodyCounter, bodyModel, bodyType, bodyMaterial, bodyColour, numberOfSeats, numberOfDoors);
     }
 }

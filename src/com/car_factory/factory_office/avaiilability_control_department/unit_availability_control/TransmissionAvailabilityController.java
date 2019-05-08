@@ -18,7 +18,7 @@ public abstract class TransmissionAvailabilityController {
     public static void standardTransmissionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 75;
         int counter;
         LinkedList<StandardTransmission> standardTransmissions = openUnitDepartment(SMT.getShortName());
 
@@ -42,7 +42,7 @@ public abstract class TransmissionAvailabilityController {
     public static void automaticTransmissionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 30;
+        int partySize = 65;
         int counter;
         LinkedList<AutomaticTransmission> automaticTransmissions = openUnitDepartment(AT.getShortName());
 
@@ -66,7 +66,7 @@ public abstract class TransmissionAvailabilityController {
     public static void semiAutomaticTransmissionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 30;
+        int partySize = 24;
         int counter;
         LinkedList<SemiAutomaticTransmission> semiAutomaticTransmissions = openUnitDepartment(SAT.getShortName());
 
@@ -90,7 +90,7 @@ public abstract class TransmissionAvailabilityController {
     public static void heavyDutyTransmissionControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 41;
         int counter;
         LinkedList<HeavyDutyTransmission> heavyDutyTransmissions = openUnitDepartment(HDMT.getShortName());
 

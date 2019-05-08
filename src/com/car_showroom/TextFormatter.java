@@ -20,17 +20,15 @@ public abstract class TextFormatter {
         System.out.println(String.format("%-25s", description + " :") + String.format("%35s", value));
     }
 
-    public static void getSeparator() {
-        for (int i = 0; i < 41; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
-
     public static void getTextSeparator() {
         for (int i = 0; i < 60; i++) {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public static void headerFormatting(String value) {
+
+        
     }
 }

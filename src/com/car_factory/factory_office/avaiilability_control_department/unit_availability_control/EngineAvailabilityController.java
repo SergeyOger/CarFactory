@@ -18,7 +18,7 @@ public abstract class EngineAvailabilityController {
     public static void lowPowerEngineAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 30;
+        int partySize = 65;
         int counter;
         LinkedList<LowPowerEngine> lowPowerEngines = openUnitDepartment(LPE.getShortName());
 
@@ -42,7 +42,7 @@ public abstract class EngineAvailabilityController {
     public static void mediumPowerEngineAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 20;
+        int partySize = 55;
         int counter;
         LinkedList<MediumPowerEngine> mediumPowerEngines = openUnitDepartment(MPE.getShortName());
 
@@ -66,7 +66,7 @@ public abstract class EngineAvailabilityController {
     public static void highPowerEngineAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 40;
+        int partySize = 25;
         int counter;
         LinkedList<HighPowerEngine> highPowerEngines = openUnitDepartment(HPE.getShortName());
 
@@ -90,7 +90,7 @@ public abstract class EngineAvailabilityController {
     public static void highPowerDieselEngineAvailabilityControl() throws IOException {
 
         int minimumAmount = 3;
-        int partySize = 15;
+        int partySize = 45;
         int counter;
         LinkedList<HighPowerDieselEngine> highPowerDieselEngines = openUnitDepartment(HPDE.getShortName());
 

@@ -4,7 +4,7 @@ import com.car_factory.production_units.specification_formating.IUnitSpecificati
 
 import java.io.Serializable;
 
-import static com.car_showroom.TextFormatter.getSeparator;
+import static com.car_factory.production_units.specification_formating.UnitSpecificationFormatting.getSeparator;
 import static com.car_factory.production_units.engine_manufacturing.EngineDescription.*;
 import static com.car_factory.production_units.specification_formating.UnitSpecificationFormatting.getSerialNumberFormatter;
 import static com.car_factory.production_units.specification_formating.UnitSpecificationFormatting.getSpecificationFormatter;

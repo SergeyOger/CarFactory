@@ -22,22 +22,20 @@ public abstract class StatisticsArchive {
             }
             return values;
         } catch (FileNotFoundException e) {
-            System.out.println("No archive exists");
+            System.out.println("Archive file is damaged. New archive created. ");
             File dir = new File("resources");
             dir.mkdir();
             File file1 = new File(dir, "statistics_archive.bin");
             file1.createNewFile();
-            return null;
+            return new int[n.length];
         } catch (ClassNotFoundException e) {
             System.out.println("Archive if empty");
-            return null;
+            return new int[n.length];
         } catch (EOFException e) {
-            e.printStackTrace();
-            System.out.println("Need to understand");
-            return null;
+            return new int[n.length];
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return new int[n.length];
         }
     }
 
@@ -58,7 +56,6 @@ public abstract class StatisticsArchive {
             File file1 = new File(dir, "statistics_archive.bin");
             file1.createNewFile();
             updateStatisticsArchive(key, value);
-            System.out.println("File not found");
         } catch (EOFException e) {
             closeArchive(new HashMap());
             updateStatisticsArchive(key, value);
@@ -77,16 +74,6 @@ public abstract class StatisticsArchive {
             File file1 = new File(dir, "statistics_archive.bin");
             file1.createNewFile();
             closeArchive(archive);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void openArchive() {
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(STATISTICS_ARCHIVE))) {
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

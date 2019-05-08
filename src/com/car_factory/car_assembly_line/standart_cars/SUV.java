@@ -29,7 +29,7 @@ public class SUV implements ICarAssemlyLine, Serializable {
 
     @Override
     public void setCounter(int counter) {
-        this.suvCarCounter = counter;
+        suvCarCounter = counter;
     }
 
     @Override
@@ -48,7 +48,6 @@ public class SUV implements ICarAssemlyLine, Serializable {
 
     @Override
     public <T extends IUnitSpecification> void getCarSpecification() {
-
         System.out.println(carModel);
         System.out.println("Car serial number: " + String.format("%06d", suvCarCounter));
         for (Object o : suv) {

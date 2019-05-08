@@ -1,21 +1,25 @@
 package com;
 
-import com.car_factory.factory_office.statistics_department.ProductionStatistics;
-
 import java.io.IOException;
-import java.util.Arrays;
 
-import static com.car_factory.car_assembly_line.standart_cars.StandardCars.*;
-import static com.car_factory.factory_office.statistics_department.ProductionStatistics.showProducedEnginesStatistics;
-import static com.car_factory.factory_office.statistics_department.ProductionStatistics.showVehicleStatistics;
-import static com.car_factory.factory_office.statistics_department.StatisticsArchive.getArchiveData;
+import static com.car_factory.factory_office.car_shipment_department.CarShipment.*;
 
 
 public class Test {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        showVehicleStatistics();
-        showProducedEnginesStatistics();
+
+        for (int i = 0; i <30 ; i++) {
+            shipTheCityCar();
+            System.out.println("+");
+            shipTheSportCar();
+            System.out.println("*");
+            shipSUVCar();
+            System.out.println("/");
+            shipUniversalCar();
+            System.out.println("-");
+        }
+        System.out.println("Done");
     }
 
 
